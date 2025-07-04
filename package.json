@@ -1,0 +1,20 @@
+{
+  "name": "co-pair",
+  "version": "0.0.0",
+  "description": "",
+  "homepage": "https://github.com/bahrus/co-pair#readme",
+  "bugs": {
+    "url": "https://github.com/bahrus/co-pair/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bahrus/co-pair.git"
+  },
+  "license": "MIT",
+  "author": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
