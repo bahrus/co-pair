@@ -12,17 +12,30 @@
             try {
                 // Prompt user to select a directory
                 const directoryHandle = await window.showDirectoryPicker();
-
-                // Iterate through the directory's contents
-                for await (const entry of directoryHandle.values()) {
-                    if (entry.kind === 'file') {
-                        console.log(`File: ${entry.name}`);
-                    } else if (entry.kind === 'directory') {
-                        console.log(`Directory: ${entry.name}`);
-                    }
-                }
+                getDirectoryContentsFromHandle(directoryHandle);
+                // // Iterate through the directory's contents
+                // for await (const entry of directoryHandle.values()) {
+                //     console.log({entry});
+                //     if (entry.kind === 'file') {
+                //         console.log(`File: ${entry.name}`);
+                //     } else if (entry.kind === 'directory') {
+                //         console.log(`Directory: ${entry.name}`);
+                //     }
+                // }
             } catch (error) {
                 console.error('Error accessing directory:', error);
+            }
+        }
+
+        async function getDirectoryContentsFromHandle(directoryHandle) {
+            // Iterate through the directory's contents
+            for await (const [name, handle] of directoryHandle.entries()) {
+                if (handle.kind === 'file') {
+                    //console.log({name, handle});
+                } else if (handle.kind === 'directory') {
+                    console.log(`Directory: ${name}`);
+                    getDirectoryContentsFromHandle(handle); // Recursively get contents of subdirectory
+                }
             }
         }
 
