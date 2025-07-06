@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="getDirectoryContents()">Get Directory Contents</button>
+    <script>
+        async function getDirectoryContents() {
+            try {
+                // Prompt user to select a directory
+                const directoryHandle = await window.showDirectoryPicker();
+
+                // Iterate through the directory's contents
+                for await (const entry of directoryHandle.values()) {
+                    if (entry.kind === 'file') {
+                        console.log(`File: ${entry.name}`);
+                    } else if (entry.kind === 'directory') {
+                        console.log(`Directory: ${entry.name}`);
+                    }
+                }
+            } catch (error) {
+                console.error('Error accessing directory:', error);
+            }
+        }
+
+
+    </script>
+</body>
+</html>
