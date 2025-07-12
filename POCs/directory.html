@@ -7,6 +7,22 @@
 </head>
 <body>
     <button onclick="getDirectoryContents()">Get Directory Contents</button>
+
+    <details>
+        <summary>c directory</summary>
+        <details style="margin-left: 20px;">
+            <summary>git directory</summary>
+            <details style="margin-left: 20px;">
+                <summary>be-active directory</summary>
+                <details  style="margin-left: 20px;">
+                    <summary>be-active.ts file</summary>
+                    <button>delete</button>
+                    <button>append text "hello"</button>
+                </details>
+            </details>
+
+        </details>
+    </details>
     <script>
         async function getDirectoryContents() {
             try {
