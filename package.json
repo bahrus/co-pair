@@ -15,7 +15,8 @@
     "ssi-server": "0.0.1"
   },
   "dependencies": {
-    "be-directive": "0.0.2"
+    "be-directive": "0.0.2",
+    "be-observing": "0.0.2"
   },
   "scripts": {
     "serve": "python3 ./node_modules/ssi-server/ssi_server.py",
