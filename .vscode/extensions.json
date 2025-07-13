@@ -1,6 +1,7 @@
 {
     "recommendations": [
         "bierner.lit-html",
-        "janbn.git-last-commit-message"
+        "janbn.git-last-commit-message",
+        "github.copilot"
     ]
 }
