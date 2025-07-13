@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="getDirectoryContents()">Get Directory Contents</button>
+
+    <details>
+        <summary>c directory</summary>
+        <details style="margin-left: 20px;">
+            <summary>git directory</summary>
+            <details style="margin-left: 20px;">
+                <summary>be-active directory</summary>
+                <details  style="margin-left: 20px;">
+                    <summary>be-active.ts file</summary>
+                    <button>delete</button>
+                    <button>append text "hello"</button>
+                </details>
+            </details>
+
+        </details>
+    </details>
+    <script>
+        async function getDirectoryContents() {
+            try {
+                // Prompt user to select a directory
+                const directoryHandle = await window.showDirectoryPicker();
+                getDirectoryContentsFromHandle(directoryHandle, []);
+                
+            } catch (error) {
+                console.error('Error accessing directory:', error);
+            }
+        }
+
+        async function getDirectoryContentsFromHandle(directoryHandle, path = []) {
+            // Iterate through the directory's contents
+            for await (const [name, handle] of directoryHandle.entries()) {
+                if (handle.kind === 'file') {
+                    //console.log({name, handle});
+                } else if (handle.kind === 'directory') {
+                    console.log(`Directory: ${path.join('/')}/${name}`);
+                    getDirectoryContentsFromHandle(handle, [...path, name]); // Recursively get contents of subdirectory
+                }
+            }
+        }
+
+
+    </script>
+</body>
+</html>

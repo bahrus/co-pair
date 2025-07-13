@@ -16,7 +16,9 @@
   },
   "dependencies": {
     "be-directive": "0.0.2",
-    "be-observing": "0.0.2"
+    "be-observing": "0.0.2",
+    "node": "^24.4.0",
+    "python3": "^0.0.1"
   },
   "scripts": {
     "serve": "python3 ./node_modules/ssi-server/ssi_server.py",
@@ -28,5 +30,4 @@
   "author": "",
   "type": "module",
   "main": "index.js"
-
 }
