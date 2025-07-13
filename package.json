@@ -16,10 +16,12 @@
   },
   "dependencies": {
     "be-directive": "0.0.2",
-    "be-observing": "0.0.2"
+    "be-observing": "0.0.2",
+    "node": "^24.4.0",
+    "python3": "^0.0.1"
   },
   "scripts": {
-    "serve": "python3 ./node_modules/ssi-server/ssi_server.py",
+    "serve": "python ./node_modules/ssi-server/ssi_server.py",
     "test": "playwright test",
     "safari": "npx playwright wk http://localhost:8000",
     "update": "ncu -u && npm install"
@@ -28,5 +30,4 @@
   "author": "",
   "type": "module",
   "main": "index.js"
-
 }
