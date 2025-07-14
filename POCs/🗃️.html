@@ -9,16 +9,15 @@
 <body>
     <button name=dirPick disabled>Pick directory</button>
 
-    <details itemscope=dir when-resolved="@dirPick+🗃️ set $0?.ish?.🗃️">
+    <details itemscope=Dir when-resolved="@dirPick+🗃️ set $0?.ish?.beDirective">
         <summary itemprop=name></summary>
     </details>
     <script type=module>
         import 'be-directive/🗃️.js';
-        import 'be-observing/🔭.js';
         import 'when-resolved/emc.js';
-        import { dir } from '/dir.js';
+        import { Dir } from '/Dir.js';
         import { regIsh, sym } from 'mount-observer/refid/regIsh.js';
-        regIsh(document.body, 'dir', dir);
+        regIsh(document.body, 'Dir', Dir);
     </script>
 </body>
 </html>
