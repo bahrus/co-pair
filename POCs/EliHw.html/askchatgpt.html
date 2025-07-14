@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Directory Viewer</title>
+</head>
+<body>
+    <h1>Directory Tree Viewer</h1>
+
+    <button onclick="runApproach1()">Run Approach 1 (DOM API)</button>
+    <button onclick="runApproach2()">Run Approach 2 (HTML Strings)</button>
+
+    <h2>Approach 1 (DOM API)</h2>
+    <div id="target_for_approach_1"></div>
+
+    <h2>Approach 2 (HTML String)</h2>
+    <div id="target_for_approach_2"></div>
+
+    <script>
+        // ----- APPROACH 1: DOM API -----
+        async function renderDirectoryDOM(handle, container, indent = 0) {
+            const details = document.createElement('details');
+            const summary = document.createElement('summary');
+            summary.textContent = `${handle.name} ${handle.kind}`;
+            summary.style.marginLeft = `${indent}px`;
+            details.appendChild(summary);
+
+            if (handle.kind === 'file') {
+                const deleteButton = document.createElement('button');
+                deleteButton.textContent = 'delete';
+                details.appendChild(deleteButton);
+
+                const appendButton = document.createElement('button');
+                appendButton.textContent = 'append text "hello"';
+                details.appendChild(appendButton);
+            } else if (handle.kind === 'directory') {
+                for await (const [, subHandle] of handle.entries()) {
+                    const subTree = await renderDirectoryDOM(subHandle, container, indent + 20);
+                    details.appendChild(subTree);
+                }
+            }
+
+            return details;
+        }
+
+        async function runApproach1() {
+            const container = document.getElementById('target_for_approach_1');
+            container.innerHTML = '';
+            try {
+                const dirHandle = await window.showDirectoryPicker();
+                const domTree = await renderDirectoryDOM(dirHandle, container);
+                container.appendChild(domTree);
+            } catch (err) {
+                console.error(err);
+            }
+        }
+
+        // ----- APPROACH 2: HTML STRING -----
+        async function renderDirectoryHTML(handle, indent = 0) {
+            let html = `<details><summary style="margin-left: ${indent}px;">${handle.name} ${handle.kind}</summary>`;
+
+            if (handle.kind === 'file') {
+                html += `<button>delete</button>`;
+                html += `<button>append text "hello"</button>`;
+            } else if (handle.kind === 'directory') {
+                for await (const [, subHandle] of handle.entries()) {
+                    html += await renderDirectoryHTML(subHandle, indent + 20);
+                }
+            }
+
+            html += `</details>`;
+            return html;
+        }
+
+        async function runApproach2() {
+            const container = document.getElementById('target_for_approach_2');
+            container.innerHTML = '';
+            try {
+                const dirHandle = await window.showDirectoryPicker();
+                const html = await renderDirectoryHTML(dirHandle);
+                container.innerHTML = html;
+            } catch (err) {
+                console.error(err);
+            }
+        }
+    </script>
+</body>
+</html>
