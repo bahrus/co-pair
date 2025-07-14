@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick = "runApproach2()">Generate DOM using approach 2</button>
+    <div id = "targettest">Formatted Numbers</div>
+    <script>
+        async function runApproach2() {
+            let numberString = ''
+            for (i = 0; i<= 25; i++){
+                numberString += `<div style = "margin-left: ${20*i}px;">number = ${i}</div>`;
+            }
+                document.getElementById('targettest').innerHTML = numberString
+        }
+
+    </script>
