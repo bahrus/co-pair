@@ -15,8 +15,11 @@
     "ssi-server": "0.0.1"
   },
   "dependencies": {
-    "be-directive": "0.0.2",
-    "be-observing": "0.0.2",
+    "be-directive": "0.0.3",
+    "be-hive": "0.0.262",
+    "mount-observer": "0.0.76",
+    "trans-render": "0.0.909",
+    "when-resolved": "0.0.1",
     "node": "^24.4.0",
     "python3": "^0.0.1"
   },

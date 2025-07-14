@@ -7,15 +7,15 @@
     <!-- #include virtual="/imports.html" -->
 </head>
 <body>
-    <button disabled 🗃️>Pick directory</button>
+    <button name=dirPick disabled>Pick directory</button>
 
-    <details itemscope="dir"
-    >
+    <details itemscope=dir when-resolved="@dirPick+🗃️ set $0?.ish?.🗃️">
         <summary itemprop=name></summary>
     </details>
     <script type=module>
         import 'be-directive/🗃️.js';
         import 'be-observing/🔭.js';
+        import 'when-resolved/emc.js';
         import { dir } from '/dir.js';
         import { regIsh, sym } from 'mount-observer/refid/regIsh.js';
         regIsh(document.body, 'dir', dir);
