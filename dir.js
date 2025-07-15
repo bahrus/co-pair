@@ -1,5 +1,5 @@
 //@ts-check
-/** @import {DirProps, DirActions} from './types' */
+/** @import {DirEndUserProps, DirAllProps, DirActions, PAP} from './types' */
 /** @import {IshConfig } from './ts-refs/trans-render/froop/types' */
 
 import {Scope} from 'trans-render/froop/Scope.js';
@@ -10,21 +10,25 @@ import {Scope} from 'trans-render/froop/Scope.js';
  */
 export class Dir extends Scope{
     /**
-     * @type {IshConfig<DirProps, DirActions>}
+     * @type {IshConfig<DirAllProps, DirActions>}
      */
     static config = {
+        propDefaults:{
+            directoryHandleChangeCount: 0,
+        },
         propInfo: {
             beDirective: {},
             directoryHandle: {},
         },
         compacts:{
-            "when_beDirective_changes_call_hydrate":0
+            "when_beDirective_changes_call_hydrate":0,
+            'when_directoryHandleChangeCount_changes_call_updateDirectoryHandle': 0,
         }
     }
 
     /**
      * 
-     * @param {DirProps} self 
+     * @param {DirAllProps} self 
      */
     hydrate(self){
         const {beDirective} = self;
@@ -33,11 +37,22 @@ export class Dir extends Scope{
     }
 
     handleEvent(){
-        console.log('dir handleEvent', arguments);
-        const self = /** @type {DirProps} */ (/** @type {any} */ (this));
+        const self = /** @type {DirAllProps} */ (/** @type {any} */ (this));
+        self.directoryHandleChangeCount++;
+    }
+
+
+    /**
+     * 
+     * @param {DirAllProps} self 
+     * @returns 
+     */
+    updateDirectoryHandle(self){
         const {beDirective} = self;
         const {directoryHandle} = beDirective;
-        self.directoryHandle = directoryHandle;
+        return /** @type {PAP} */ ({
+            directoryHandle
+        });
     }
 
     // '<mount>'(el){
