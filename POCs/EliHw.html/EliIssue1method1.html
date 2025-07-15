@@ -31,7 +31,7 @@
             try {
                 // Prompt user to select a directory
                 const directoryHandle = await window.showDirectoryPicker();
-                getDirectoryContentsFromHandle(directoryHandle, []);
+                //getDirectoryContentsFromHandle(directoryHandle, []);
                 const parent = document.createElement('details');
                 await runApproach1(directoryHandle,parent,[]);
                 document.getElementById("target_for_approach_1").appendChild(parent);
@@ -63,6 +63,7 @@
         async function runApproach1(directoryHandle,parent,path = []) {
             const summary = document.createElement('summary');
             summary.textContent = directoryHandle.name;
+            console.log(directoryHandle.name);
             parent.appendChild(summary);
             for await (const [name, handle] of directoryHandle.entries()) {
                 if (handle.kind === 'directory') {
