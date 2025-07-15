@@ -86,7 +86,7 @@
             console.log({arr});
             const html = `<details>
                 <summary>${directoryHandle.name}</summary>
-                ${Array.from(arr) .map(
+                ${arr.map(
                     async ([name, handle]) => {
                         if (handle.kind === 'file') {
                             console.log(`File: ${path.join('/')}/${name}`);
