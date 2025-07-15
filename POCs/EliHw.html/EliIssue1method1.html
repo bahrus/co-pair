@@ -31,13 +31,12 @@
             try {
                 // Prompt user to select a directory
                 const directoryHandle = await window.showDirectoryPicker();
-                //getDirectoryContentsFromHandle(directoryHandle, []);
-                // const parent = document.createElement('details');
-                // await runApproach1(directoryHandle,parent,[]);
-                // document.getElementById("target_for_approach_1").appendChild(parent);
-                // let html = "";
-                const html = await runApproach2(directoryHandle, []);
-                document.getElementById("target_for_approach_2").innerHTML = html;
+                getDirectoryContentsFromHandle(directoryHandle, []);
+                const parent = document.createElement('details');
+                await runApproach1(directoryHandle,parent,[]);
+                document.getElementById("target_for_approach_1").appendChild(parent);
+                // const html = await runApproach2(directoryHandle, []);
+                // document.getElementById("target_for_approach_2").innerHTML = html;
 
             } catch (error) {
                 console.error('Error accessing directory:', error);
@@ -50,12 +49,6 @@
             // const method2loc = document.getElementById("target_for_approach_2");
             for await (const [name, handle] of directoryHandle.entries()) {
                 if (handle.kind === 'file') {
-                    // const fileName = document.createElement("summary");
-                    // fileName.textContent = `${path.join('/')}/${name}`;
-                    // const format = document.createElement("details ");
-                    // format.style.marginLeft = `20px`
-                    // method1loc.appendChild(fileName)
-                    // console.log({name, handle});
 
                 } else if (handle.kind === 'directory') {
                     console.log(`Directory: ${path.join('/')}/${name}`);
