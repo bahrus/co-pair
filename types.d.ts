@@ -4,7 +4,7 @@ export interface FileOrDir {
 }
 
 export interface DirProps {
-    dirHandle: FileSystemDirectoryHandle;
+    directoryHandle: FileSystemDirectoryHandle;
     fileOrDirs: Array<FileOrDir>;
     beDirective: any;
 }

@@ -6,6 +6,7 @@ import {Scope} from 'trans-render/froop/Scope.js';
 
 /**
  * @implements {DirActions}
+ * @implements {EventListenerObject}
  */
 export class Dir extends Scope{
     /**
@@ -13,7 +14,8 @@ export class Dir extends Scope{
      */
     static config = {
         propInfo: {
-            beDirective: {}
+            beDirective: {},
+            directoryHandle: {},
         },
         compacts:{
             "when_beDirective_changes_call_hydrate":0
@@ -26,7 +28,16 @@ export class Dir extends Scope{
      */
     hydrate(self){
         const {beDirective} = self;
+        beDirective.propagator.addEventListener('directoryHandle', this);
         console.log({beDirective});
+    }
+
+    handleEvent(){
+        console.log('dir handleEvent', arguments);
+        const self = /** @type {DirProps} */ (/** @type {any} */ (this));
+        const {beDirective} = self;
+        const {directoryHandle} = beDirective;
+        self.directoryHandle = directoryHandle;
     }
 
     // '<mount>'(el){
