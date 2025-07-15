@@ -82,9 +82,11 @@
            }
         }
         async function runApproach2(directoryHandle, path = []) {
+            const arr = await Array.fromAsync(directoryHandle.entries());
+            console.log({arr});
             const html = `<details>
                 <summary>${directoryHandle.name}</summary>
-                ${Array.from(await directoryHandle.entries()) .map(
+                ${Array.from(arr) .map(
                     async ([name, handle]) => {
                         if (handle.kind === 'file') {
                             console.log(`File: ${path.join('/')}/${name}`);
