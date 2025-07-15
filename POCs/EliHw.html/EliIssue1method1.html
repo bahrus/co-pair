@@ -71,6 +71,12 @@
                     await runApproach1(handle, details, [...path,name]);
                     parent.appendChild(details);
                 }
+                else if (handle.kind === 'file') {
+                    const fileDiv = document.createElement('div');
+                    fileDiv.style.marginLeft = `${20 * path.length}px`;
+                    fileDiv.textContent = `File: ${name}`;
+                    parent.appendChild(fileDiv);
+                }
 
            }
         }
