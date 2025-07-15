@@ -11,13 +11,16 @@ export interface DirEndUserProps {
 }
 
 export interface DirAllProps extends DirEndUserProps {
-    fileOrDirs: Array<FileOrDir>;
+    //fileOrDirs: Array<FileOrDir>;
     directoryHandleChangeCount: number;
 }
 
 export type PAP = Partial<DirAllProps>;
 
+export type ProPAP = Promise<PAP>;
+
 export interface DirActions {
     hydrate: (self: DirAllProps) => void;
     updateDirectoryHandle: (self: DirAllProps) => PAP;
+    expandDirectoryHandle: (self: DirAllProps) => ProPAP;
 }
