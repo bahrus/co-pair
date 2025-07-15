@@ -33,7 +33,7 @@
                 const directoryHandle = await window.showDirectoryPicker();
                 getDirectoryContentsFromHandle(directoryHandle, []);
                 const parent = document.createElement('details');
-                runApproach1(directoryHandle,parent,[]);
+                await runApproach1(directoryHandle,parent,[]);
                 document.getElementById("target_for_approach_1").appendChild(parent);
                 
             } catch (error) {
