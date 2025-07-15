@@ -51,7 +51,7 @@
                 if (handle.kind === 'file') {
 
                 } else if (handle.kind === 'directory') {
-                    console.log(`Directory: ${path.join('/')}/${name}`);
+                    // console.log(`Directory: ${path.join('/')}/${name}`);
                     getDirectoryContentsFromHandle(handle, [...path, name]); // Recursively get contents of subdirectory
                 }
             }
@@ -59,15 +59,15 @@
         async function runApproach1(directoryHandle,parent,path = []) {
             const summary = document.createElement('summary');
             summary.textContent = directoryHandle.name;
-            console.log(directoryHandle.name);
+            // console.log(directoryHandle.name);
             parent.appendChild(summary);
             for await (const [name, handle] of directoryHandle.entries()) {
                 if (handle.kind === 'directory') {
                     const details = document.createElement('details');
                     details.style.marginLeft = '20px';
-                    const summary = document.createElement('summary');
-                    summary.textContent = name;
-                    details.appendChild(summary);
+                    // const summary = document.createElement('summary');
+                    // summary.textContent = name;
+                    // details.appendChild(summary);
                     await runApproach1(handle, details, [...path,name]);
                     parent.appendChild(details);
                 }
