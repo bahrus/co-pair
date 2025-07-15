@@ -6,11 +6,11 @@
     <title>Document</title>
 </head>
 <body>
-    <button onclick="getDirectoryContents()">Get Directory Contents</button>
-    <button onclick = "runApproach1()">Show directory contents using approach 1</button>
-    <button onclick = "runApproach2(0)"> Show directory contents using approach 2</button>
+    <button onclick = "getDirectoryContents()">Get Directory Contents</button>
+    <!-- <button onclick = "runApproach1()">Show directory contents using approach 1</button>
+    <button onclick = "runApproach2()"> Show directory contents using approach 2</button> -->
 
-    <details>
+    <!-- <details>
         <summary>c directory</summary>
         <details style="margin-left: 20px;">
             <summary>git directory</summary>
@@ -21,9 +21,9 @@
                     <button>delete</button>
                     <button>append text "hello"</button>
                 </details>
-            </details>
-    <div id="target_for_approach_1">Approach 1</div>
-    <div id="target_for_approach_2">Approach 2</div>
+            </details> -->
+    <div id="target_for_approach_1">Approach 1 Directory</div>
+    <!-- <div id="target_for_approach_2">Approach 2</div> -->
         </details>
     </details>
     <script>
@@ -32,6 +32,9 @@
                 // Prompt user to select a directory
                 const directoryHandle = await window.showDirectoryPicker();
                 getDirectoryContentsFromHandle(directoryHandle, []);
+                const parent = document.createElement('details');
+                runApproach1(directoryHandle,parent,[]);
+                document.getElementById("target_for_approach_1").appendChild(parent);
                 
             } catch (error) {
                 console.error('Error accessing directory:', error);
@@ -40,19 +43,40 @@
 
         async function getDirectoryContentsFromHandle(directoryHandle, path = []) {
             // Iterate through the directory's contents
+            const method1loc = document.getElementById("target_for_approach_1");
+            // const method2loc = document.getElementById("target_for_approach_2");
             for await (const [name, handle] of directoryHandle.entries()) {
                 if (handle.kind === 'file') {
-                    //console.log({name, handle});
+                    // const fileName = document.createElement("summary");
+                    // fileName.textContent = `${path.join('/')}/${name}`;
+                    // const format = document.createElement("details ");
+                    // format.style.marginLeft = `20px`
+                    // method1loc.appendChild(fileName)
+                    // console.log({name, handle});
+
                 } else if (handle.kind === 'directory') {
                     console.log(`Directory: ${path.join('/')}/${name}`);
                     getDirectoryContentsFromHandle(handle, [...path, name]); // Recursively get contents of subdirectory
                 }
             }
         }
-        async function runApproach1() {
-            
-        }
+        async function runApproach1(directoryHandle,parent,path = []) {
+            const summary = document.createElement('summary');
+            summary.textContent = directoryHandle.name;
+            parent.appendChild(summary);
+            for await (const [name, handle] of directoryHandle.entries()) {
+                if (handle.kind === 'directory') {
+                    const details = document.createElement('details');
+                    details.style.marginLeft = '20px';
+                    const summary = document.createElement('summary');
+                    summary.textContent = name;
+                    details.appendChild(summary);
+                    await runApproach1(handle, details, [...path,name]);
+                    parent.appendChild(details);
+                }
 
+           }
+        }
     </script>
 </body>
 </html>
