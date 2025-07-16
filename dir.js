@@ -78,7 +78,7 @@ export class Dir extends Scope{
          * @type {Array<FileOrDir>}
          */
         const list = [];
-        for(const [name, handle] of directoryHandle.entries()){
+        for await (const [name, handle] of directoryHandle.entries()){
             list.push({
                 name,
                 handle
