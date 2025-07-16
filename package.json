@@ -19,6 +19,7 @@
     "be-enhanced": "0.0.182",
     "be-hive": "0.0.262",
     "mount-observer": "0.0.76",
+    "per-each": "0.0.5",
     "trans-render": "0.0.909",
     "when-resolved": "0.0.1",
     "node": "^24.4.0",
