@@ -13,6 +13,7 @@ export interface DirEndUserProps {
 export interface DirAllProps extends DirEndUserProps {
     //fileOrDirs: Array<FileOrDir>;
     directoryHandleChangeCount: number;
+    name: string;
 }
 
 export type PAP = Partial<DirAllProps>;

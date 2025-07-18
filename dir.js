@@ -21,10 +21,11 @@ export class Dir extends Scope{
             directoryHandle: {},
             directoryHandleChangeCount: {
                 def: 0,
-            }
+            },
+            name:{},
         },
         xform:{
-
+            '| name': 0
         },
         compacts:{
             when_beDirective_changes_call_hydrate:0,
@@ -74,11 +75,12 @@ export class Dir extends Scope{
      */
     async expandDirectoryHandle(self){
         const {directoryHandle} = self;
+        console.log({directoryHandle})
         /**
          * @type {Array<FileOrDir>}
          */
         const list = [];
-        for(const [name, handle] of directoryHandle.entries()){
+        for await (const [name, handle] of directoryHandle.entries()){
             list.push({
                 name,
                 handle
@@ -86,7 +88,9 @@ export class Dir extends Scope{
         }
         console.log({list});
         this.#ref.deref().ish = list;
-
+        return{
+            name: directoryHandle.name
+        }
     }
 
     #ref;
