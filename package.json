@@ -18,12 +18,10 @@
     "be-directive": "0.0.3",
     "be-enhanced": "0.0.182",
     "be-hive": "0.0.262",
-    "mount-observer": "0.0.76",
+    "mount-observer": "0.0.77",
     "per-each": "0.0.5",
-    "trans-render": "0.0.909",
-    "when-resolved": "0.0.1",
-    "node": "^24.4.0",
-    "python3": "^0.0.1"
+    "trans-render": "0.0.910",
+    "when-resolved": "0.0.1"
   },
   "scripts": {
     "serve": "python ./node_modules/ssi-server/ssi_server.py",

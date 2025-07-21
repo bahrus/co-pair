@@ -11,7 +11,13 @@
 
     <details itemscope=Dir when-resolved="@dirPick+🗃️ set $0?.ish?.beDirective">
         <summary itemprop=name></summary>
+        <details style="margin-left:20px;" per-each="Dir of Dir">
+            <summary itemprop=name></summary>
+        </details>
     </details>
+
+
+
     <script type=module>
         import 'be-directive/🗃️.js';
         import 'when-resolved/emc.js';
