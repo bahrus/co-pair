@@ -76,6 +76,33 @@
                     fileDiv.style.marginLeft = `${20 * path.length}px`;
                     fileDiv.textContent = `File: ${name}`;
                     parent.appendChild(fileDiv);
+                    const deleteButton = document.createElement('button');
+                    deleteButton.textContent = 'Delete';
+                    parent.appendChild(deleteButton);
+                    deleteButton.onclick = async () => {
+                        try {
+                            await handle.remove();
+                            fileDiv.remove();
+                            deleteButton.remove();
+                        } catch (error) {
+                            console.error('Error deleting file:', error);
+                        }
+                    };
+                    const appendTextButton = document.createElement('button');
+                    appendTextButton.textContent = 'Append Text "world"';
+                    parent.appendChild(appendTextButton);
+                    appendTextButton.onclick = async () => {
+                        try {
+                        const writable = await handle.createWritable({keepExistingData: true});
+                            const file = await handle.getFile();
+                            await writable.seek(file.size);
+                            await writable.write('world');
+                            await writable.close();
+                        } catch (error) {
+                            console.error('Error appending text:', error);
+                        }
+                    };
+
                 }
 
            }
