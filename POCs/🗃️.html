@@ -9,11 +9,14 @@
 <body>
     <button name=dirPick disabled>Pick directory</button>
 
-    <details itemscope=Dir when-resolved="@dirPick+🗃️ set $0?.ish?.beDirective">
-        <summary itemprop=name></summary>
-        <details style="margin-left:20px;" per-each="Dir of Dir">
-            <summary itemprop=name></summary>
-        </details>
+    <details id=parent itemscope=Dir when-resolved="@dirPick+🗃️ set $0?.ish?.beDirective">
+        <summary id=outside itemprop=name></summary>
+        <template be-switched="on when ^{details}.">
+            <details id=child style="margin-left:20px;" per-each="Dir of Dir">
+                <summary id=inside itemprop=name></summary>
+            </details>
+        </template>
+
     </details>
 
 
@@ -24,6 +27,7 @@
         import { Dir } from '/Dir.js';
         import 'per-each/emc.js';
         import { regIsh, sym } from 'mount-observer/refid/regIsh.js';
+        import 'be-switched/emc.js';
         regIsh(document.body, 'Dir', Dir);
     </script>
 </body>

@@ -18,9 +18,10 @@
     "be-directive": "0.0.3",
     "be-enhanced": "0.0.182",
     "be-hive": "0.0.262",
-    "mount-observer": "0.0.77",
+    "be-switched": "0.0.124",
+    "mount-observer": "0.0.78",
     "per-each": "0.0.5",
-    "trans-render": "0.0.910",
+    "trans-render": "0.0.911",
     "when-resolved": "0.0.1"
   },
   "scripts": {
