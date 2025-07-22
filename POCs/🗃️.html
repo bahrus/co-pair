@@ -5,18 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>🗃️</title>
     <!-- #include virtual="/imports.html" -->
+    <template id=details-summary>
+        <details id=child style="margin-left:20px;" per-each="Dir of Dir">
+            <summary id=inside itemprop=name></summary>
+            <template 🎚️="on when ^{details}." data-blow-dry-ref="details-summary"></template>
+        </details>
+    </template>
 </head>
 <body>
     <button name=dirPick disabled>Pick directory</button>
 
     <details id=parent itemscope=Dir when-resolved="@dirPick+🗃️ set $0?.ish?.beDirective">
         <summary id=outside itemprop=name></summary>
-        <template be-switched="on when ^{details}.">
-            <details id=child style="margin-left:20px;" per-each="Dir of Dir">
-                <summary id=inside itemprop=name></summary>
-            </details>
-        </template>
-
+        <template 🎚️="on when ^{details}." data-blow-dry-ref=details-summary></template>
     </details>
 
 
@@ -27,7 +28,7 @@
         import { Dir } from '/Dir.js';
         import 'per-each/emc.js';
         import { regIsh, sym } from 'mount-observer/refid/regIsh.js';
-        import 'be-switched/emc.js';
+        import 'be-switched/🎚️.js';
         regIsh(document.body, 'Dir', Dir);
     </script>
 </body>
