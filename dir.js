@@ -25,7 +25,8 @@ export class Dir extends Scope{
             name:{},
         },
         xform:{
-            '| name': 0
+            '| name': 0,
+            
         },
         compacts:{
             when_beDirective_changes_call_hydrate:0,
@@ -83,7 +84,7 @@ export class Dir extends Scope{
         for await (const [name, handle] of directoryHandle.entries()){
             list.push({
                 name,
-                handle
+                directoryHandle: handle
             });
         }
         console.log({list});

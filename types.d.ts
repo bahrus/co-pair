@@ -1,7 +1,7 @@
 import {AP as BeDirectiveAProps, Actions as BeDirectiveActions} from './ts-refs/be-directive/types';
 
 export interface FileOrDir {
-    handle: FileSystemHandle;
+    directoryHandle: FileSystemHandle;
     name: string;
 }
 
