@@ -73,7 +73,7 @@
                 }
                 else if (handle.kind === 'file') {
                     const fileDiv = document.createElement('div');
-                    fileDiv.style.marginLeft = `${20 * path.length}px`;
+                    fileDiv.style.marginLeft = `20px`;
                     fileDiv.textContent = `File: ${name}`;
                     parent.appendChild(fileDiv);
                     const deleteButton = document.createElement('button');
@@ -116,11 +116,11 @@
                     async ([name, handle]) => {
                         if (handle.kind === 'file') {
                             console.log(`File: ${path.join('/')}/${name}`);
-                            return `<div style="margin-left: ${20 * path.length}px;">File: ${name}</div>`;
+                            return `<div style="margin-left: 20px;">File: ${name}</div>`;
                         } else if (handle.kind === 'directory') {
                             console.log(`Directory: ${path.join('/')}/${name}`);
                             const subHtml = await runApproach2(handle, [...path, name]);
-                            return `<details style="margin-left: ${20 * path.length}px;">
+                            return `<details style="margin-left: 20px;">
                                         <summary>${name}</summary>
                                         ${subHtml}
                                     </details>`;
