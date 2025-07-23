@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="EliIssue1Method1.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
@@ -64,7 +65,8 @@
             for await (const [name, handle] of directoryHandle.entries()) {
                 if (handle.kind === 'directory') {
                     const details = document.createElement('details');
-                    details.style.marginLeft = '20px';
+                    // details.style.marginLeft = '20px';
+                    details.classList.add('left-indentation');
                     // const summary = document.createElement('summary');
                     // summary.textContent = name;
                     // details.appendChild(summary);
@@ -73,7 +75,8 @@
                 }
                 else if (handle.kind === 'file') {
                     const fileDiv = document.createElement('div');
-                    fileDiv.style.marginLeft = `20px`;
+                    // fileDiv.style.marginLeft = `20px`;
+                    fileDiv.classList.add('left-indentation');
                     fileDiv.textContent = `File: ${name}`;
                     parent.appendChild(fileDiv);
                     const deleteButton = document.createElement('button');
@@ -116,11 +119,12 @@
                     async ([name, handle]) => {
                         if (handle.kind === 'file') {
                             console.log(`File: ${path.join('/')}/${name}`);
-                            return `<div style="margin-left: 20px;">File: ${name}</div>`;
+                            // return `<div style="margin-left: 20px;">File: ${name}</div>`;
+                            return `<div class="left-indentation">File: ${name}</div>`;
                         } else if (handle.kind === 'directory') {
                             console.log(`Directory: ${path.join('/')}/${name}`);
                             const subHtml = await runApproach2(handle, [...path, name]);
-                            return `<details style="margin-left: 20px;">
+                            return `<details class="left-indentation">
                                         <summary>${name}</summary>
                                         ${subHtml}
                                     </details>`;
