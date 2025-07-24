@@ -17,7 +17,7 @@ export class Dir extends Scope{
         //     directoryHandleChangeCount: 0,
         // },
         propInfo: {
-            beDirective: {},
+            folderPicker: {},
             directoryHandle: {},
             directoryHandleChangeCount: {
                 def: 0,
@@ -29,7 +29,7 @@ export class Dir extends Scope{
             
         },
         compacts:{
-            when_beDirective_changes_call_hydrate:0,
+            when_folderPicker_changes_call_hydrate:0,
             when_directoryHandleChangeCount_changes_call_updateDirectoryHandle: 0,
             when_directoryHandle_changes_call_expandDirectoryHandle: 0,
         }
@@ -40,11 +40,11 @@ export class Dir extends Scope{
      * @param {DirAllProps & Scope} self 
      */
     hydrate(self){
-        const {beDirective} = self;
-        if(!beDirective) return;
-        beDirective.propagator.addEventListener('directoryHandle', this);
+        const {folderPicker} = self;
+        if(!folderPicker) return;
+        folderPicker.propagator.addEventListener('directoryHandle', this);
         this.handleEvent();
-        console.log({beDirective});
+        console.log({folderPicker});
     }
 
     handleEvent(){
@@ -59,11 +59,11 @@ export class Dir extends Scope{
      * @returns 
      */
     updateDirectoryHandle(self){
-        const {beDirective} = self;
-        if(!beDirective){
+        const {folderPicker} = self;
+        if(!folderPicker){
             return ({});
         }
-        const {directoryHandle} = beDirective;
+        const {directoryHandle} = folderPicker;
         return /** @type {PAP} */ ({
             directoryHandle
         });

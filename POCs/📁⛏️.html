@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🗃️</title>
+    <title>📁⛏️</title>
     <!-- #include virtual="/imports.html" -->
     <template id=details-summary>
         <details id=child style="margin-left:20px;" per-each="Dir of Dir">
@@ -15,15 +15,15 @@
 <body>
     <button name=dirPick disabled>Pick directory</button>
 
-    <details id=parent itemscope=Dir when-resolved="@dirPick+🗃️ set $0?.ish?.beDirective">
+    <details id=parent itemscope=Dir when-resolved="@dirPick+📁⛏️ set $0?.ish?.folderPicker">
         <summary id=outside itemprop=name></summary>
-        <template  🎚️="on when ^{details}." src="../import.html" data-blow-dry-ref=details-summary></template>
+        <template  🎚️="on when ^{details}." data-blow-dry-ref=details-summary></template>
     </details>
 
 
 
     <script type=module>
-        import 'be-directive/🗃️.js';
+        import 'folder-picker/📁⛏️.js';
         import 'when-resolved/emc.js';
         import { Dir } from '/Dir.js';
         import 'per-each/emc.js';

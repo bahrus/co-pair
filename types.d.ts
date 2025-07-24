@@ -1,4 +1,4 @@
-import {AP as BeDirectiveAProps, Actions as BeDirectiveActions} from './ts-refs/be-directive/types';
+import {AP as FolderPickerProps, Actions as FolderPickerActions} from './ts-refs/folder-picker/types';
 
 export interface FileOrDir {
     directoryHandle: FileSystemHandle;
@@ -7,7 +7,7 @@ export interface FileOrDir {
 
 export interface DirEndUserProps {
     directoryHandle: FileSystemDirectoryHandle;
-    beDirective: BeDirectiveAProps & BeDirectiveActions;
+    folderPicker: FolderPickerProps & FolderPickerActions;
 }
 
 export interface DirAllProps extends DirEndUserProps {
