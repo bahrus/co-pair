@@ -2,150 +2,21 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" href="EliIssue1Method1.css">
+    <script type = module>
+        import {getDirectoryContents} from './EliIssue1Method1.js';
+        document.getElementById("getDirectory").addEventListener("click", async () => {
+            await getDirectoryContents();
+        });
+    </script>
     <meta charset="UTF-16">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
 <body>
-    <button onclick = "getDirectoryContents()">Get Directory Contents</button>
-    <!-- <button onclick = "runApproach1()">Show directory contents using approach 1</button>
-    <button onclick = "runApproach2()"> Show directory contents using approach 2</button> -->
-
-    <!-- <details>
-        <summary>c directory</summary>
-        <details style="margin-left: 20px;">
-            <summary>git directory</summary>
-            <details style="margin-left: 20px;">
-                <summary>be-active directory</summary>
-                <details  style="margin-left: 20px;">
-                    <summary>be-active.ts file</summary>
-                    <button>delete</button>
-                    <button>append text "hello"</button>
-                </details>
-            </details> -->
+    <button id = "getDirectory">Get Directory Contents</button>
     <div id="target_for_approach_1">Approach 1 Directory</div>
     <div id="target_for_approach_2">Approach 2</div>
         </details>
     </details>
-    <script>
-        async function getDirectoryContents() {
-            try {
-                // Prompt user to select a directory
-                const directoryHandle = await window.showDirectoryPicker();
-                getDirectoryContentsFromHandle(directoryHandle, []);
-                const parent = document.createElement('details');
-                await runApproach1(directoryHandle,parent,[]);
-                document.getElementById("target_for_approach_1").appendChild(parent);
-                // const html = await runApproach2(directoryHandle, []);
-                // document.getElementById("target_for_approach_2").innerHTML = html;
-
-            } catch (error) {
-                console.error('Error accessing directory:', error);
-            }
-        }
-
-        async function getDirectoryContentsFromHandle(directoryHandle, path = []) {
-            // Iterate through the directory's contents
-            const method1loc = document.getElementById("target_for_approach_1");
-            // const method2loc = document.getElementById("target_for_approach_2");
-            for await (const [name, handle] of directoryHandle.entries()) {
-                if (handle.kind === 'file') {
-
-                } else if (handle.kind === 'directory') {
-                    // console.log(`Directory: ${path.join('/')}/${name}`);
-                    getDirectoryContentsFromHandle(handle, [...path, name]); // Recursively get contents of subdirectory
-                }
-            }
-        }
-        async function runApproach1(directoryHandle,parent,path = []) {
-            const summary = document.createElement('summary');
-            summary.textContent = directoryHandle.name;
-            // console.log(directoryHandle.name);
-            parent.appendChild(summary);
-            for await (const [name, handle] of directoryHandle.entries()) {
-                if (handle.kind === 'directory') {
-                    const details = document.createElement('details');
-                    // details.style.marginLeft = '20px';
-                    details.classList.add('left-indentation');
-                    // const summary = document.createElement('summary');
-                    // summary.textContent = name;
-                    // details.appendChild(summary);
-                    await runApproach1(handle, details, [...path,name]);
-                    parent.appendChild(details);
-                }
-                else if (handle.kind === 'file') {
-                    const fileDiv = document.createElement('div');
-                    // fileDiv.style.marginLeft = `20px`;
-                    fileDiv.classList.add('left-indentation');
-                    fileDiv.textContent = `File: ${name}`;
-                    parent.appendChild(fileDiv);
-                    const deleteButton = document.createElement('button');
-                    deleteButton.textContent = 'Delete';
-                    parent.appendChild(deleteButton);
-                    deleteButton.onclick = async () => {
-                        try {
-                            await handle.remove();
-                            fileDiv.remove();
-                            deleteButton.remove();
-                        } catch (error) {
-                            console.error('Error deleting file:', error);
-                        }
-                    };
-                    const appendTextButton = document.createElement('button');
-                    appendTextButton.textContent = 'Append Text "world"';
-                    parent.appendChild(appendTextButton);
-                    appendTextButton.onclick = async () => {
-                        try {
-                        const writable = await handle.createWritable({keepExistingData: true});
-                            const file = await handle.getFile();
-                            await writable.seek(file.size);
-                            await writable.write('world');
-                            await writable.close();
-                        } catch (error) {
-                            console.error('Error appending text:', error);
-                        }
-                    };
-
-                }
-
-           }
-        }
-        async function runApproach2(directoryHandle, path = []) {
-            const arr = await Array.fromAsync(directoryHandle.entries());
-            console.log({arr});
-            const html = `<details>
-                <summary>${directoryHandle.name}</summary>
-                ${(await Promise.all(arr.map(
-                    async ([name, handle]) => {
-                        if (handle.kind === 'file') {
-                            console.log(`File: ${path.join('/')}/${name}`);
-                            // return `<div style="margin-left: 20px;">File: ${name}</div>`;
-                            return `<div class="left-indentation">File: ${name}</div>`;
-                        } else if (handle.kind === 'directory') {
-                            console.log(`Directory: ${path.join('/')}/${name}`);
-                            const subHtml = await runApproach2(handle, [...path, name]);
-                            return `<details class="left-indentation">
-                                        <summary>${name}</summary>
-                                        ${subHtml}
-                                    </details>`;
-                        }
-                        return '';
-                    }
-                ))).join('')}
-                </details>
-                `;
-
-            // for await (const [name, handle] of directoryHandle.entries()) {
-            //      if (handle.kind === 'directory') {
-            //         html += `<details style="margin-left: ${20 * path.length}px;">
-            //                     <summary>${name}</summary>`;
-            //         html = await runApproach2(handle, html, [...path, name]);
-            //     }
-            // }
-            // html += `</details>`;
-        
-            return html;
-        }
-    </script>
 </body>
 </html>
