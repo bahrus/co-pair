@@ -25,12 +25,12 @@
 <body>
     <button name=dirPick disabled>Pick directory</button>
 
-    <details id=parent itemscope=Dir data-kind="directory" when-resolved="@dirPick+📁⛏️ set $0?.ish?.folderPicker">
+    <details itemscope=Dir data-kind="directory" when-resolved="@dirPick+📁⛏️ set $0?.ish?.folderPicker">
         <summary itemprop=name></summary>
         <template  🎚️="on when ^{details}." src=#directory-summary rel=preload></template>
     </details>
 
-    <details id=parent itemscope=Dir data-kind="file" when-resolved="@dirPick+📁⛏️ set $0?.ish?.folderPicker">
+    <details itemscope=Dir data-kind="file" when-resolved="@dirPick+📁⛏️ set $0?.ish?.folderPicker">
         <summary itemprop=name></summary>
         <template  🎚️="on when ^{details}." src=#file-summary rel=preload></template>
     </details>
