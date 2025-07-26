@@ -5,31 +5,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>📁⛏️</title>
     <!-- #include virtual="/imports.html" -->
-    <template id=details-summary>
-        <details style="margin-left:20px;" per-each="Dir of Dir">
+    <template id=directory-summary>
+        <details data-kind=directory style="margin-left:20px;" per-each="Dir of Dir">
             <summary itemprop=name></summary>
-            <template 🎚️="on when ^{details}." src=#details-summary rel=preload></template>
+            <template 🎚️="on when ^{details}." src=#directory-summary rel=preload></template>
+        </details>
+
+        <details data-kind=file style="margin-left:20px;" per-each="File of Dir">
+            <summary itemprop=name></summary>
+        </details>
+    </template>
+
+    <template id=file-summary>
+        <details style="margin-left:20px;">
+            <summary itemprop=name></summary>
         </details>
     </template>
 </head>
 <body>
     <button name=dirPick disabled>Pick directory</button>
 
-    <details id=parent itemscope=Dir when-resolved="@dirPick+📁⛏️ set $0?.ish?.folderPicker">
+    <details id=parent itemscope=Dir data-kind="directory" when-resolved="@dirPick+📁⛏️ set $0?.ish?.folderPicker">
         <summary itemprop=name></summary>
-        <template  🎚️="on when ^{details}." src=#details-summary rel=preload></template>
+        <template  🎚️="on when ^{details}." src=#directory-summary rel=preload></template>
     </details>
 
-
+    <details id=parent itemscope=Dir data-kind="file" when-resolved="@dirPick+📁⛏️ set $0?.ish?.folderPicker">
+        <summary itemprop=name></summary>
+        <template  🎚️="on when ^{details}." src=#file-summary rel=preload></template>
+    </details>
 
     <script type=module>
         import 'folder-picker/📁⛏️.js';
         import 'when-resolved/emc.js';
-        import { Dir } from '/Dir.js';
+        
         import 'per-each/emc.js';
         import { regIsh, sym } from 'mount-observer/refid/regIsh.js';
         import 'be-switched/🎚️.js';
+
+        import { Dir } from '/Dir/Dir.js';
         regIsh(document.body, 'Dir', Dir);
+
+        import { File } from '/File/File.js';
+        regIsh(document.body, 'File', File);
     </script>
 </body>
 </html>

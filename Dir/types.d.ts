@@ -1,7 +1,7 @@
-import {AP as FolderPickerProps, Actions as FolderPickerActions} from './ts-refs/folder-picker/types';
+import {AP as FolderPickerProps, Actions as FolderPickerActions} from '../ts-refs/folder-picker/types';
 
-export interface FileOrDir {
-    directoryHandle: FileSystemHandle;
+export interface DirHandleAndName {
+    directoryHandle: FileSystemDirectoryHandle;
     name: string;
 }
 

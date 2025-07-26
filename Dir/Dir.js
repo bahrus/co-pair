@@ -1,6 +1,6 @@
 //@ts-check
-/** @import {DirEndUserProps, DirAllProps, DirActions, PAP, FileOrDir} from './types' */
-/** @import {IshConfig } from './ts-refs/trans-render/froop/types' */
+/** @import {DirEndUserProps, DirAllProps, DirActions, PAP, DirHandleAndName} from './types' */
+/** @import {IshConfig } from '../ts-refs/trans-render/froop/types' */
 
 import {Scope} from 'trans-render/froop/Scope.js';
 
@@ -78,12 +78,12 @@ export class Dir extends Scope{
         const {directoryHandle} = self;
         console.log({directoryHandle})
         /**
-         * @type {Array<FileOrDir>}
+         * @type {Array<DirHandleAndName>}
          */
         const list = [];
         for await (const [name, handle] of directoryHandle.entries()){
             console.log({handle});
-            if(handle.kind === 'file') continue;
+            if(handle.kind !== this.#kind) continue;
             list.push({
                 name,
                 directoryHandle: handle
@@ -96,9 +96,12 @@ export class Dir extends Scope{
         }
     }
 
+    #kind = 'directory';
+
     #ref;
     '<mount>'(scope, el){
         this.#ref = new WeakRef(el);
+        this.#kind = el.getAttribute('data-kind') || 'directory';
         super['<mount>'](scope, el);
     }
 }
