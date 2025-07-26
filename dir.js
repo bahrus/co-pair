@@ -82,6 +82,8 @@ export class Dir extends Scope{
          */
         const list = [];
         for await (const [name, handle] of directoryHandle.entries()){
+            console.log({handle});
+            if(handle.kind === 'file') continue;
             list.push({
                 name,
                 directoryHandle: handle
@@ -96,7 +98,6 @@ export class Dir extends Scope{
 
     #ref;
     '<mount>'(scope, el){
-        console.log({scope, el});
         this.#ref = new WeakRef(el);
         super['<mount>'](scope, el);
     }
