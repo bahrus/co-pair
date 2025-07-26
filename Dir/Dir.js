@@ -82,14 +82,14 @@ export class Dir extends Scope{
          */
         const list = [];
         for await (const [name, handle] of directoryHandle.entries()){
-            console.log({handle});
+            //console.log({handle, kind: this.#kind});
             if(handle.kind !== this.#kind) continue;
             list.push({
                 name,
                 directoryHandle: handle
             });
         }
-        console.log({list});
+        console.log({kind: this.#kind, list});
         this.#ref.deref().ish = list;
         return{
             name: directoryHandle.name
@@ -101,7 +101,8 @@ export class Dir extends Scope{
     #ref;
     '<mount>'(scope, el){
         this.#ref = new WeakRef(el);
-        this.#kind = el.getAttribute('data-kind') || 'directory';
+        this.#kind = el.dataset.kind || 'directory';
+        console.log(this.#kind);
         super['<mount>'](scope, el);
     }
 }
