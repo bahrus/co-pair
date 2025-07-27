@@ -1,9 +1,11 @@
+import {AllProps as DirInfoAllProps} from '../DirInfo/types';
 export interface EndUserProps {
     directoryHandle: FileSystemDirectoryHandle;
 }
 
 export interface AllProps extends EndUserProps {
-    name: string;
+    debugList: Array<FileSystemDirectoryHandle>;
+    dirInfo: DirInfoAllProps;
 }
 
 export type AP = AllProps;
@@ -13,5 +15,5 @@ export type PAP = Partial<AllProps>;
 export type ProPAP = Promise<PAP>;
 
 export interface Actions {
-    getInfo(self: AP): PAP;
+    getList(self: AP): ProPAP;
 }

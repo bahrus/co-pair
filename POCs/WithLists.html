@@ -29,7 +29,8 @@
 
     <details itemscope=DirInfo data-kind="directory" when-resolved="@dirPick+📁⛏️ set $0?.ish?.directoryHandle to directoryHandle">
         <summary itemprop=name></summary>
-        
+        <ul itemscope=DirList>
+        </ul>
     </details>
 
 
@@ -45,6 +46,8 @@
         import { DirInfo } from '/DirInfo/DirInfo.js';
         regIsh(document.body, 'DirInfo', DirInfo);
 
+        import { DirList } from '/DirList/DirList.js';
+        regIsh(document.body, 'DirList', DirList);
 
     </script>
 </body>
