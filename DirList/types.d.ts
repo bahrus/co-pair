@@ -1,10 +1,10 @@
-import {AllProps as DirInfoAllProps} from '../DirInfo/types';
+import {PAP as DirInfoPAP, AP as DirInfoAllProps} from '../DirInfo/types';
 export interface EndUserProps {
     directoryHandle: FileSystemDirectoryHandle;
 }
 
 export interface AllProps extends EndUserProps {
-    debugList: Array<FileSystemDirectoryHandle>;
+    debugList: Array<DirInfoPAP>;
     dirInfo: DirInfoAllProps;
 }
 

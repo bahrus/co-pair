@@ -1,5 +1,6 @@
 //@ts-check
 /** @import {AP, Actions, PAP, } from './types' */
+/** @import {PAP as DirInfoPAP,} from '../DirInfo/types' */
 /** @import {IshConfig } from '../ts-refs/trans-render/froop/types' */
 
 import {Scope} from 'trans-render/froop/Scope.js';
@@ -34,11 +35,16 @@ export class DirList extends Scope{
      */
     async getList(self){
         const {directoryHandle} = self;
+        /**
+         * @type Array<DirInfoPAP>>
+         */
         const list = [];
         for await (const [name, handle] of directoryHandle.entries()){
             //console.log({handle, kind: this.#kind});
             if(handle.kind !== 'directory') continue;
-            list.push(handle);
+            list.push({
+                directoryHandle: handle,
+            });
         }
         this.#ref.deref().ish = list;
         return /** @type {PAP} */ ({
