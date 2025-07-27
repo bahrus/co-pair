@@ -15,5 +15,6 @@ export type PAP = Partial<AllProps>;
 export type ProPAP = Promise<PAP>;
 
 export interface Actions {
+    hydrate(self: AP): ProPAP;
     getList(self: AP): ProPAP;
 }

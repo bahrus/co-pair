@@ -6,6 +6,7 @@ import {Scope} from 'trans-render/froop/Scope.js';
 
 /**
  * @implements {Actions}
+ * @implements {EventListenerObject}
  */
 export class DirList extends Scope{
     /**
@@ -14,11 +15,14 @@ export class DirList extends Scope{
     static config = {
         propInfo: {
             directoryHandle: {},
+            dirInfo: {},
+            debugList: {},
         },
         xform:{
         },
         compacts:{
             when_directoryHandle_changes_call_getList: 0,
+            when_dirInfo_changes_call_hydrate: 0,
         },
         mapParentScopeRefTo: 'dirInfo'
     }
@@ -47,6 +51,25 @@ export class DirList extends Scope{
     '<mount>'(scope, el){
         this.#ref = new WeakRef(el);
         super['<mount>'](scope, el);
+    }
+
+    handleEvent(){
+        const self = /** @type {AP} */(this);
+        const {dirInfo} = self;
+        self.directoryHandle = dirInfo.deref().directoryHandle;
+    }
+
+    /**
+     * 
+     * @param {AP} self 
+     * @returns 
+     */
+    hydrate(self){
+        const {dirInfo} = self;
+        dirInfo.deref().propagator.addEventListener('directoryHandle', this);
+        this.handleEvent();
+        return /** @type {PAP} */ ({
+        });
     }
 
 }
