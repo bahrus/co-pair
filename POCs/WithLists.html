@@ -27,15 +27,9 @@
 <body>
     <button name=dirPick disabled>Pick directory</button>
 
-    <details itemscope=Dir data-kind="directory" when-resolved="@dirPick+📁⛏️ set $0?.ish?.folderPicker">
+    <details itemscope=DirInfo data-kind="directory" when-resolved="@dirPick+📁⛏️ set $0?.ish?.directoryHandle to directoryHandle">
         <summary itemprop=name></summary>
-        <template  🎚️="on when ^{details}." src=#directory-summary rel=preload></template>
-
-        <div style="margin-left:20px;" itemscope=Dir data-kind="file" when-resolved="@dirPick+📁⛏️ set $0?.ish?.folderPicker">
-            <details data-kind=file per-each="File of Dir">
-                <summary>File: <span itemprop=name></span></summary>
-            </details>
-        </div>
+        
     </details>
 
 
@@ -48,11 +42,10 @@
         import { regIsh, sym } from 'mount-observer/refid/regIsh.js';
         import 'be-switched/🎚️.js';
 
-        import { Dir } from '/Dir/Dir.js';
-        regIsh(document.body, 'Dir', Dir);
+        import { DirInfo } from '/DirInfo/DirInfo.js';
+        regIsh(document.body, 'DirInfo', DirInfo);
 
-        import { File } from '/File/File.js';
-        regIsh(document.body, 'File', File);
+
     </script>
 </body>
 </html>

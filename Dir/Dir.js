@@ -23,6 +23,7 @@ export class Dir extends Scope{
                 def: 0,
             },
             name:{},
+            debugList:{},
         },
         xform:{
             '| name': 0,
@@ -91,9 +92,10 @@ export class Dir extends Scope{
         }
         console.log({kind: this.#kind, list});
         this.#ref.deref().ish = list;
-        return{
-            name: directoryHandle.name
-        }
+        return /** @type {PAP} */ ({
+            name: directoryHandle.name,
+            debugList: list
+        })
     }
 
     #kind = 'directory';

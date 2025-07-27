@@ -8,6 +8,7 @@ export interface DirHandleAndName {
 export interface DirEndUserProps {
     directoryHandle: FileSystemDirectoryHandle;
     folderPicker: FolderPickerProps & FolderPickerActions;
+    debugList: Array<DirHandleAndName>;
 }
 
 export interface DirAllProps extends DirEndUserProps {
