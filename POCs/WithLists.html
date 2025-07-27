@@ -29,11 +29,16 @@
 
     <details itemscope=DirInfo data-kind="directory" when-resolved="@dirPick+📁⛏️ set $0?.ish?.directoryHandle to directoryHandle">
         <summary itemprop=name></summary>
-        <ul itemscope=DirList>
+        <ul itemscope=DirList data-kind=directory>
             <li per-each="DirInfo of DirList">
                 <details>
                     <summary itemprop=name></summary>
                 </details>
+            </li>
+        </ul>
+        <ul itemscope=DirList data-kind=file>
+            <li per-each="DirInfo of DirList">
+                File: <span itemprop=name></span>
             </li>
         </ul>
     </details>

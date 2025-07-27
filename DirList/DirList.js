@@ -41,7 +41,7 @@ export class DirList extends Scope{
         const list = [];
         for await (const [name, handle] of directoryHandle.entries()){
             //console.log({handle, kind: this.#kind});
-            if(handle.kind !== 'directory') continue;
+            if(handle.kind !== this.#kind) continue;
             list.push({
                 directoryHandle: handle,
             });
@@ -54,8 +54,10 @@ export class DirList extends Scope{
     }
 
     #ref;
+    #kind = 'directory';
     '<mount>'(scope, el){
         this.#ref = new WeakRef(el);
+        this.#kind = el.getAttribute('data-kind') || 'directory';
         super['<mount>'](scope, el);
     }
 
