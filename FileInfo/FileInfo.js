@@ -38,7 +38,6 @@ export class FileInfo extends Scope{
 
     /**
      * @param {Event} evt
-     * @param {AP} self 
      * @returns 
      */
     delete(evt, {model}){
