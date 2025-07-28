@@ -1,6 +1,6 @@
 import {PAP as DirInfoPAP, AP as DirInfoAllProps} from '../DirInfo/types';
 export interface EndUserProps {
-    directoryHandle: FileSystemDirectoryHandle;
+    handle: FileSystemDirectoryHandle;
 }
 
 export interface AllProps extends EndUserProps {

@@ -15,12 +15,12 @@ export class DirList extends Scope{
      */
     static config = {
         propInfo: {
-            directoryHandle: {}, dirInfoRef: {}, debugList: {},
+            handle: {}, dirInfoRef: {}, debugList: {},
         },
         xform:{
         },
         compacts:{
-            when_directoryHandle_changes_call_getList: 0,
+            when_handle_changes_call_getList: 0,
             when_dirInfoRef_changes_call_hydrate: 0,
         },
         mapParentScopeRefTo: 'dirInfoRef'
@@ -32,7 +32,7 @@ export class DirList extends Scope{
      * @returns 
      */
     async getList(self){
-        const {directoryHandle} = self;
+        const {handle: directoryHandle} = self;
         /**
          * @type Array<DirInfoPAP>>
          */
@@ -41,7 +41,7 @@ export class DirList extends Scope{
             //console.log({handle, kind: this.#kind});
             if(handle.kind !== this.#kind) continue;
             list.push({
-                directoryHandle: handle,
+                handle,
             });
         }
         this.#ref.deref().ish = list;
@@ -64,7 +64,7 @@ export class DirList extends Scope{
         const {dirInfoRef} = self;
         const dirInfo = dirInfoRef.deref();
         if(!dirInfo) return;
-        self.directoryHandle = dirInfo.directoryHandle;
+        self.handle = dirInfo.handle;
     }
 
     /**

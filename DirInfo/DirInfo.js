@@ -13,14 +13,14 @@ export class DirInfo extends Scope{
      */
     static config = {
         propInfo: {
-            directoryHandle: {},
+            handle: {},
             name:{},
         },
         xform:{
             '| name': 0,
         },
         compacts:{
-            when_directoryHandle_changes_call_getInfo: 0,
+            when_handle_changes_call_getInfo: 0,
         }
     }
 
@@ -31,7 +31,7 @@ export class DirInfo extends Scope{
      */
     getInfo(self){
         return /** @type {PAP} */({
-            name: self.directoryHandle.name,
+            name: self.handle.name,
         });
     }
 
