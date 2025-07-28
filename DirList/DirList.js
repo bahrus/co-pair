@@ -15,17 +15,15 @@ export class DirList extends Scope{
      */
     static config = {
         propInfo: {
-            directoryHandle: {},
-            dirInfo: {},
-            debugList: {},
+            directoryHandle: {}, dirInfoRef: {}, debugList: {},
         },
         xform:{
         },
         compacts:{
             when_directoryHandle_changes_call_getList: 0,
-            when_dirInfo_changes_call_hydrate: 0,
+            when_dirInfoRef_changes_call_hydrate: 0,
         },
-        mapParentScopeRefTo: 'dirInfo'
+        mapParentScopeRefTo: 'dirInfoRef'
     }
 
     /**
@@ -62,9 +60,11 @@ export class DirList extends Scope{
     }
 
     handleEvent(){
-        const self = /** @type {AP} */(this);
-        const {dirInfo} = self;
-        self.directoryHandle = dirInfo.deref().directoryHandle;
+        const self = /** @type {AP} */(/** @type {any} */(this));
+        const {dirInfoRef} = self;
+        const dirInfo = dirInfoRef.deref();
+        if(!dirInfo) return;
+        self.directoryHandle = dirInfo.directoryHandle;
     }
 
     /**
@@ -73,8 +73,8 @@ export class DirList extends Scope{
      * @returns 
      */
     hydrate(self){
-        const {dirInfo} = self;
-        dirInfo.deref().propagator.addEventListener('directoryHandle', this);
+        const {dirInfoRef} = self;
+        dirInfoRef.deref()?.propagator.addEventListener('directoryHandle', this);
         this.handleEvent();
         return /** @type {PAP} */ ({
         });

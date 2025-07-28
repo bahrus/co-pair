@@ -5,7 +5,7 @@ export interface EndUserProps {
 
 export interface AllProps extends EndUserProps {
     debugList: Array<DirInfoPAP>;
-    dirInfo: DirInfoAllProps;
+    dirInfoRef: WeakRef<DirInfoAllProps>;
 }
 
 export type AP = AllProps;
@@ -15,6 +15,6 @@ export type PAP = Partial<AllProps>;
 export type ProPAP = Promise<PAP>;
 
 export interface Actions {
-    hydrate(self: AP): ProPAP;
+    hydrate(self: AP): PAP;
     getList(self: AP): ProPAP;
 }
