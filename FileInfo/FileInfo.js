@@ -18,6 +18,7 @@ export class FileInfo extends Scope{
         },
         xform:{
             '| name': 0,
+            '@ delete': {a: 0, o: []}
         },
         compacts:{
             when_handle_changes_call_getInfo: 0,
@@ -33,6 +34,16 @@ export class FileInfo extends Scope{
         return /** @type {PAP} */({
             name: self.handle.name,
         });
+    }
+
+    /**
+     * @param {Event} evt
+     * @param {AP} self 
+     * @returns 
+     */
+    delete(evt, {model}){
+        const {handle} = model;
+        console.log('deleting file', handle.name);
     }
 
 }

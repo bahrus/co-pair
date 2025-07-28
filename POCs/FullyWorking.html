@@ -15,9 +15,9 @@
             </li>
         </ul>
         <ul itemscope=DirList data-kind=file>
-            <li per-each="DirInfo of DirList">
+            <li per-each="FileInfo of DirList">
                 File: <span itemprop=name></span>
-                <button>Delete</button>
+                <button name=delete>Delete</button>
             </li>
         </ul>        
     </template>
@@ -45,6 +45,9 @@
 
         import { DirList } from '/DirList/DirList.js';
         regIsh(document.body, 'DirList', DirList);
+
+        import { FileInfo } from '/FileInfo/FileInfo.js';
+        regIsh(document.body, 'FileInfo', FileInfo);
 
     </script>
 </body>
