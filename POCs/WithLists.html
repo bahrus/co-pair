@@ -5,30 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>📁⛏️</title>
     <!-- #include virtual="/imports.html" -->
-    <template id=directory-summary>
-        <details data-kind=directory style="margin-left:20px;" per-each="Dir of Dir">
-            <summary itemprop=name></summary>
-            
-            <template 🎚️="on when ^{details}." src=#directory-summary rel=preload></template>
-
-        </details>
-
-        <details data-kind=file style="margin-left:20px;" per-each="File of Dir">
-            <summary itemprop=name></summary>
-        </details>
-    </template>
-
-    <template id=file-summary>
-        <details style="margin-left:20px;">
-            <summary itemprop=name></summary>
-        </details>
-    </template>
-</head>
-<body>
-    <button name=dirPick disabled>Pick directory</button>
-
-    <details itemscope=DirInfo data-kind="directory" when-resolved="@dirPick+📁⛏️ set $0?.ish?.directoryHandle to directoryHandle">
-        <summary itemprop=name></summary>
+    <template id=dirs-files>
         <ul itemscope=DirList data-kind=directory>
             <li per-each="DirInfo of DirList">
                 <details>
@@ -40,7 +17,16 @@
             <li per-each="DirInfo of DirList">
                 File: <span itemprop=name></span>
             </li>
-        </ul>
+        </ul>        
+    </template>
+</head>
+<body>
+    <button name=dirPick disabled>Pick directory</button>
+
+    <details itemscope=DirInfo data-kind="directory" when-resolved="@dirPick+📁⛏️ set $0?.ish?.directoryHandle to directoryHandle">
+        <summary itemprop=name></summary>
+        <template 🎚️="on when ^{details}." rel=preload src=#dirs-files></template>
+        
     </details>
 
 
