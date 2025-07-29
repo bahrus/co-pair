@@ -38,7 +38,7 @@ export class DirInfo extends Scope{
         for await (const [name, childHandle] of handle.entries()){
             switch(childHandle.kind){
                 case 'directory':
-                    subDirs.push({handle: childHandle});
+                    subDirs.push({handle: /** @type {FileSystemDirectoryHandle} */(childHandle)});
                     break;
                 case 'file':
                     files.push({handle: childHandle});

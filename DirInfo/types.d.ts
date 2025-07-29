@@ -4,8 +4,8 @@ export interface EndUserProps {
 
 export interface AllProps extends EndUserProps {
     name: string;
-    subDirs: Array<FileSystemDirectoryHandle>;
-    files: Array<FileSystemFileHandle>;
+    subDirs: Array<{handle: FileSystemDirectoryHandle}>;
+    files: Array<{handle: FileSystemFileHandle}>;
 }
 
 export type AP = AllProps;
