@@ -14,15 +14,8 @@ export class DirList extends Scope{
      * @type {IshConfig<AP & Scope, Actions>}
      */
     static config = {
-        propInfo: {
-            handle: {}
-        },
-        xform:{
-        },
-        
+        xform:{},
     }
-
-
 
 }
 
