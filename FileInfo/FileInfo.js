@@ -1,7 +1,7 @@
 //@ts-check
 /** @import {AP, Actions, PAP, } from './types' */
 /** @import {IshConfig } from '../ts-refs/trans-render/froop/types' */
-/** @import {ITransformer} from '../ts-refs/trans-render/types' */
+/** @import {ITransformer, XForm} from '../ts-refs/trans-render/types' */
 
 import {Scope} from 'trans-render/froop/Scope.js';
 
@@ -10,14 +10,14 @@ import {Scope} from 'trans-render/froop/Scope.js';
  */
 export class FileInfo extends Scope{
     /**
-     * @type {IshConfig<AP & Scope, Actions>}
+     * @type {IshConfig<AP, Actions>}
      */
     static config = {
         propInfo: {
             handle: {},
             name:{},
         },
-        xform:{
+        xform: {
             '| name': 0,
             '@ delete': {a: 0, o: []}
         },
