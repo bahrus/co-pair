@@ -15,7 +15,7 @@ export class DirList extends Scope{
      */
     static config = {
         propInfo: {
-            handle: {}, dirInfoRef: {}, debugList: {},
+            handle: {}
         },
         xform:{
         },
