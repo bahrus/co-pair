@@ -14,5 +14,5 @@ export type ProPAP = Promise<PAP>;
 
 export interface Actions {
     getInfo(self: AP): PAP;
-    delete(evt: Event, self: AP): void;
+    delete(evt: Event, self: AP): Promise<void>;
 }

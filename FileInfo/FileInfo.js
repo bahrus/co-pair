@@ -40,10 +40,14 @@ export class FileInfo extends Scope{
      * @param {Event} evt
      * @returns 
      */
-    delete(evt, {model}){
+    async delete(evt, {model, target}){
         const {handle} = model;
-        console.log('deleting file', handle.name);
+        await handle.remove();
+        target.remove();
+        //console.log('deleting file', handle.name);
     }
+
+    
 
 }
 

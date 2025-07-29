@@ -25,7 +25,8 @@
 <body>
     <button name=dirPick disabled>Pick directory</button>
 
-    <details itemscope=DirInfo data-kind="directory" when-resolved="@dirPick+📁⛏️ set $0?.ish?.handle to directoryHandle">
+    <details itemscope=DirInfo data-kind="directory" 
+        when-resolved="@dirPick+📁⛏️ set $0?.ish?.handle to directoryHandle">
         <summary itemprop=name></summary>
         <template 🎚️="on when ^{details}." rel=preload src=#dirs-files></template>
     </details>
