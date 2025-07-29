@@ -1,3 +1,4 @@
+import {ITransformer} from '../ts-refs/trans-render/types';
 export interface EndUserProps {
     handle: FileSystemHandle;
 }
@@ -14,5 +15,5 @@ export type ProPAP = Promise<PAP>;
 
 export interface Actions {
     getInfo(self: AP): PAP;
-    delete(evt: Event, self: AP): Promise<void>;
+    delete(evt: Event, transformer: ITransformer<AP, Actions>): Promise<void>;
 }

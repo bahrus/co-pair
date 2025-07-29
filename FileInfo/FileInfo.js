@@ -1,6 +1,7 @@
 //@ts-check
 /** @import {AP, Actions, PAP, } from './types' */
 /** @import {IshConfig } from '../ts-refs/trans-render/froop/types' */
+/** @import {ITransformer} from '../ts-refs/trans-render/types' */
 
 import {Scope} from 'trans-render/froop/Scope.js';
 
@@ -38,9 +39,11 @@ export class FileInfo extends Scope{
 
     /**
      * @param {Event} evt
+     * @param {ITransformer<AP, Actions>} transformer
      * @returns 
      */
-    async delete(evt, {model, target}){
+    async delete(evt, transformer){
+        const {model, target} = transformer;
         const {handle} = model;
         await handle.remove();
         target.remove();
