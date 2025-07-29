@@ -15,6 +15,8 @@ export class DirInfo extends Scope{
         propInfo: {
             handle: {},
             name:{},
+            subDirs: {},
+            files: {},
         },
         xform:{
             '| name': 0,
@@ -29,9 +31,24 @@ export class DirInfo extends Scope{
      * @param {AP} self 
      * @returns 
      */
-    getInfo(self){
+    async getInfo(self){
+        const subDirs = [];
+        const files = [];
+        const {handle} = self;
+        for await (const [name, childHandle] of handle.entries()){
+            switch(childHandle.kind){
+                case 'directory':
+                    subDirs.push({handle: childHandle});
+                    break;
+                case 'file':
+                    files.push({handle: childHandle});
+                    break;
+            }
+        }
         return /** @type {PAP} */({
             name: self.handle.name,
+            subDirs,
+            files,
         });
     }
 

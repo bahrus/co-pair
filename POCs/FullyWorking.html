@@ -6,7 +6,7 @@
     <title>📁⛏️</title>
     <!-- #include virtual="/imports.html" -->
     <template id=dirs-files>
-        <ul itemscope=DirList data-kind=directory>
+        <ul itemscope=DirList itemprop=subDirs>
             <li per-each="DirInfo of DirList">
                 <details>
                     <summary itemprop=name></summary>
@@ -14,7 +14,7 @@
                 </details>
             </li>
         </ul>
-        <ul itemscope=DirList data-kind=file>
+        <ul itemscope=DirList itemprop=files>
             <li per-each="FileInfo of DirList">
                 File: <span itemprop=name></span>
                 <button name=delete>Delete</button>
