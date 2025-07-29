@@ -46,8 +46,10 @@ export class FileInfo extends Scope{
         const {model, target} = transformer;
         const {handle} = model;
         await handle.remove();
-        target.remove();
-        //console.log('deleting file', handle.name);
+        if(target instanceof Element){
+            target.remove();
+        }
+        
     }
 
     

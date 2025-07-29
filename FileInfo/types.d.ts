@@ -17,3 +17,8 @@ export interface Actions {
     getInfo(self: AP): PAP;
     delete(evt: Event, transformer: ITransformer<AP, Actions>): Promise<void>;
 }
+
+export interface FileSystemHandle {
+    remove(): Promise<void>;
+    name: string;
+}
