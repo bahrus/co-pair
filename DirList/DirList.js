@@ -7,7 +7,6 @@ import {Scope} from 'trans-render/froop/Scope.js';
 
 /**
  * @implements {Actions}
- * @implements {EventListenerObject}
  */
 export class DirList extends Scope{
     /**
