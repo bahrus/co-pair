@@ -5,11 +5,14 @@ export interface EndUserProps {
 
 export interface AllProps extends EndUserProps {
     name: string;
+    subDirs: Array<SubDir>;
 }
 
 export interface SubDir {
-    handle: FileSystemDirectoryHandle;
-    isMine: boolean;
-    isYours: boolean;
-    isShared: boolean;
+    myHandle: FileSystemDirectoryHandle | undefined;
+    yourHandle: FileSystemDirectoryHandle | undefined;
+    weMatch: boolean;
+    onlyYoursExists: boolean;
+    onlyMineExists: boolean;
+    nameToDisplay: string;
 }
