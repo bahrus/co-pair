@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LHS/RHS</title>
+    <!-- #include virtual="/imports.html" -->
+    <template id=dirs-files>
+        <ul itemscope=DirList itemprop=subDirs>
+            <li per-each="DirInfo of DirList">
+                <details>
+                    <summary itemprop=name></summary>
+                    <template 🎚️="on when ^{details}." rel=preload src=#dirs-files></template>
+                </details>
+            </li>
+        </ul>
+        <ul itemscope=DirList itemprop=files>
+            <li per-each="FileInfo of DirList">
+                File: <span itemprop=name></span>
+                <button name=delete>Delete</button>
+            </li>
+        </ul>        
+    </template>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>
+                    <button name=lhsDirPick disabled>Pick LHS directory</button>
+                </th>
+                <th>
+                    <button name=rhsDirPick disabled>Pick RHS directory</button>
+                </th>
+            </tr>
+            <tr>
+                <th>Left Hand Side</th>
+                <th>Right Hand Side</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <details itemscope=DirInfo data-kind="directory" 
+                        when-resolved="@lhsDirPick+📁⛏️ set $0?.ish?.handle to directoryHandle">
+                        <summary itemprop=name></summary>
+                        <template 🎚️="on when ^{details}." rel=preload src=#dirs-files></template>
+                    </details>
+                </td>
+                <td>
+                    <details itemscope=DirInfo data-kind="directory" 
+                        when-resolved="@rhsDirPick+📁⛏️ set $0?.ish?.handle to directoryHandle">
+                        <summary itemprop=name></summary>
+                        <template 🎚️="on when ^{details}." rel=preload src=#dirs-files></template>
+                    </details>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script type=module>
+        import 'folder-picker/📁⛏️.js';
+        import 'when-resolved/emc.js';
+        
+        import 'per-each/emc.js';
+        import { regIsh } from 'mount-observer/refid/regIsh.js';
+        import 'be-switched/🎚️.js';
+
+        import { DirInfo } from '/DirInfo/DirInfo.js';
+        regIsh(document.body, 'DirInfo', DirInfo);
+
+        import { DirList } from '/DirList/DirList.js';
+        regIsh(document.body, 'DirList', DirList);
+
+        import { FileInfo } from '/FileInfo/FileInfo.js';
+        regIsh(document.body, 'FileInfo', FileInfo);
+
+    </script>
+</body>
+</html>
