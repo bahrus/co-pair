@@ -41,15 +41,21 @@
         <tbody>
             <tr>
                 <td>
-                    <details itemscope=DirInfo data-kind="directory" 
-                        when-resolved="@lhsDirPick+📁⛏️ set $0?.ish?.handle to directoryHandle">
+                    <details itemscope=CompDirInfo 
+                        when-resolved="
+                            @lhsDirPick+📁⛏️ set $0?.ish?.myHandle to directoryHandle.
+                            @rhsDirPick+📁⛏️ set $0?.ish?.yourHandle to directoryHandle.
+                        ">
                         <summary itemprop=name></summary>
                         <template 🎚️="on when ^{details}." rel=preload src=#dirs-files></template>
                     </details>
                 </td>
                 <td>
-                    <details itemscope=DirInfo data-kind="directory" 
-                        when-resolved="@rhsDirPick+📁⛏️ set $0?.ish?.handle to directoryHandle">
+                    <details itemscope=CompDirInfo 
+                        when-resolved="
+                            @rhsDirPick+📁⛏️ set $0?.ish?.myHandle to directoryHandle.
+                            @lhsDirPick+📁⛏️ set $0?.ish?.yourHandle to directoryHandle.
+                        ">
                         <summary itemprop=name></summary>
                         <template 🎚️="on when ^{details}." rel=preload src=#dirs-files></template>
                     </details>
@@ -66,8 +72,11 @@
         import { regIsh } from 'mount-observer/refid/regIsh.js';
         import 'be-switched/🎚️.js';
 
-        import { DirInfo } from '/DirInfo/DirInfo.js';
-        regIsh(document.body, 'DirInfo', DirInfo);
+        // import { DirInfo } from '/DirInfo/DirInfo.js';
+        // regIsh(document.body, 'DirInfo', DirInfo);
+
+        import { CompDirInfo } from '/CompDirInfo/CompDirInfo.js';
+        regIsh(document.body, 'CompDirInfo', CompDirInfo);
 
         import { DirList } from '/DirList/DirList.js';
         regIsh(document.body, 'DirList', DirList);

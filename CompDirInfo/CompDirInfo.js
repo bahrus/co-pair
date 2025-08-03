@@ -1,5 +1,5 @@
 //@ts-check
-/** @import {AP, Actions, PAP, } from './types' */
+/** @import {AP, Actions, PAP, SubDir} from './types' */
 /** @import {IshConfig } from '../ts-refs/trans-render/froop/types' */
 
 import {Scope} from 'trans-render/froop/Scope.js';
@@ -8,5 +8,43 @@ import {Scope} from 'trans-render/froop/Scope.js';
  * @implements {Actions}
  */
 export class CompDirInfo extends Scope {
-    
+    /**
+     * @type {IshConfig<AP & Scope, Actions>}
+     */
+    static config = {
+        propInfo: {
+            myHandle: {},
+            yourHandle: {},
+            name: {},
+            subDirs: {},
+        },
+        xform: {
+            '| name': 0,
+        },
+        actions: {
+            getInfo: {
+                ifAllOf: ['myHandle', 'yourHandle'],
+            }
+        }
+    }
+
+    /**
+     * 
+     * @param {AP} self 
+     * @returns 
+     */
+    async getInfo(self){
+        /**
+         * @type {SubDir[]}
+         */
+        const subDirs = [];
+        const {myHandle, yourHandle} = self;
+        throw 'NI';
+        return /** @type {PAP} */({
+            name: myHandle.name,
+            subDirs,
+        });
+    }
 }
+
+CompDirInfo.bootUp();
