@@ -47,10 +47,17 @@ export class CompDirInfo extends Scope {
         for await (const [name, yourSubHandle] of yourHandle.entries()){
             yourSubDirectories.push(yourSubHandle);
         }
+        debugger;
         //alphabetize mySubdictories and yourSubdirectories
         //iterate through mySubdirectories
         //if the name matches 
         //push into subDirs
+        //iterate through yoursubs
+        // subDirs.push({
+        //     weMatch: true,
+        //     myHandle: 
+
+        // });
         throw 'NI';
         return /** @type {PAP} */({
             name: myHandle.name,
