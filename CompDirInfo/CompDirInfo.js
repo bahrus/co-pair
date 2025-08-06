@@ -17,9 +17,11 @@ export class CompDirInfo extends Scope {
             yourHandle: {},
             name: {},
             subDirs: {},
+            nameToDisplay: {},
         },
         xform: {
             '| name': 0,
+            '| nameToDisplay': 0,
         },
         actions: {
             getInfo: {
@@ -68,14 +70,13 @@ export class CompDirInfo extends Scope {
                 weMatch: !!yourSubHandle,
                 onlyYoursExists: false,
                 onnlyMineExists: !yourSubHandle,
-                nameToDisplay: yourSubHandle,
+                nameToDisplay: mySubHandle.name,
             })
             console.log(subDirs)
 
 
 
         }
-        debugger;
 
         //alphabetize mySubdictories and yourSubdirectories
         //iterate through mySubdirectories
@@ -87,7 +88,6 @@ export class CompDirInfo extends Scope {
         //     myHandle: 
 
         // });
-        throw 'NI';
         return /** @type {PAP} */({
             name: myHandle.name,
             subDirs,

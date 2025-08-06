@@ -5,6 +5,7 @@ export interface EndUserProps {
 
 export interface AllProps extends EndUserProps {
     name: string;
+    nameToDisplay: string;
     subDirs: Array<SubDir>;
 }
 

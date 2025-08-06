@@ -7,9 +7,9 @@
     <!-- #include virtual="/imports.html" -->
     <template id=dirs-files>
         <ul itemscope=DirList itemprop=subDirs>
-            <li per-each="DirInfo of DirList">
+            <li per-each="CompDirInfo of DirList">
                 <details>
-                    <summary itemprop=name></summary>
+                    <summary itemprop=nameToDisplay></summary>
                     <template 🎚️="on when ^{details}." rel=preload src=#dirs-files></template>
                 </details>
             </li>
