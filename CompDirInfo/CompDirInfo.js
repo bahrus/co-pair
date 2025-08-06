@@ -47,12 +47,35 @@ export class CompDirInfo extends Scope {
         for await (const [name, yourSubHandle] of yourHandle.entries()){
             yourSubDirectories.push(yourSubHandle);
         }
+        //aplhabetize subdirectories
         mySubDirectories.sort((a, b) => a.name.localeCompare(b.name));
         yourSubDirectories.sort((a, b) => a.name.localeCompare(b.name));
+        //chatgpt suggested I use a map to speed up the lookup
+
+        const yourHandleMap = new Map(
+            yourSubDirectories.map((subDir) => [subDir.name, subDir])
+
+        );
+        // It says the purpose of this line is to track names alreayd matched
+        //I however don't undestand how this is doing that
+        const matches = new Set();
         for await (const mySubHandle of mySubDirectories){
-            mySubHandle.name
+            const name = mySubHandle.name
+            const yourSubHandle = yourHandleMap.get(name);
+            subDirs.push({
+                myHandle : mySubHandle,
+                yourHandle: yourSubHandle,
+                weMatch: !!yourSubHandle,
+                onlyYoursExists: false,
+                onnlyMineExists: !yourSubHandle,
+                nameToDisplay: yourSubHandle,
+            })
+            console.log(subDirs)
+
+
 
         }
+        debugger;
 
         //alphabetize mySubdictories and yourSubdirectories
         //iterate through mySubdirectories
