@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-16">
+    <link
+      rel="stylesheet"
+      media="(prefers-color-scheme:light)"
+      href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/themes/light.css"
+    />
+    <link
+      rel="stylesheet"
+      media="(prefers-color-scheme:dark)"
+      href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/themes/dark.css"
+      onload="document.documentElement.classList.add('sl-theme-dark');"
+    />
+    <!-- <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/menu/menu.js"></script> -->
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/shoelace-autoloader.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>co-pair</title>
+</head>
+<body>
+<sl-menu style="max-width: 200px;">
+  <!-- <sl-menu-item value="undo">Undo</sl-menu-item>
+  <sl-menu-item value="redo">Redo</sl-menu-item>
+  <sl-divider></sl-divider>
+  <sl-menu-item value="cut">Cut</sl-menu-item>
+  <sl-menu-item value="copy">Copy</sl-menu-item>
+  <sl-menu-item value="paste">Paste</sl-menu-item>
+  <sl-divider></sl-divider> -->
+  <sl-menu-item>
+    Session
+    <sl-menu slot="submenu">
+      <sl-menu-item value="new-session">New Session</sl-menu-item>
+      <sl-menu-item value="load-session">Load Session</sl-menu-item>
+      <sl-menu-item value="save-session">Save Session</sl-menu-item>
+        <sl-menu slot = "submenu">
+          <sl-menu-item value="folder-compare">Folder Compare</sl-menu-item>
+          Load Session</sl-menu-item>
+      <sl-menu-item value="find-previous">Find Next</sl-menu-item>
+      <sl-menu-item value="find-next">Find Previous</sl-menu-item>
+    </sl-menu>
+  </sl-menu-item>
+  <sl-menu-item>
+    Transformations
+    <sl-menu slot="submenu">
+      <sl-menu-item value="uppercase">Make uppercase</sl-menu-item>
+      <sl-menu-item value="lowercase">Make lowercase</sl-menu-item>
+      <sl-menu-item value="capitalize">Capitalize</sl-menu-item>
+    </sl-menu>
+  </sl-menu-item>
+</sl-menu>
+
+</body>
+</html>

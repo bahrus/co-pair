@@ -11,7 +11,7 @@
     "url": "git+https://github.com/bahrus/co-pair.git"
   },
   "devDependencies": {
-    "@playwright/test": "1.54.1",
+    "@playwright/test": "1.54.2",
     "ssi-server": "0.0.1"
   },
   "dependencies": {

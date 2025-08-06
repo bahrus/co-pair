@@ -47,7 +47,13 @@ export class CompDirInfo extends Scope {
         for await (const [name, yourSubHandle] of yourHandle.entries()){
             yourSubDirectories.push(yourSubHandle);
         }
-        debugger;
+        mySubDirectories.sort((a, b) => a.name.localeCompare(b.name));
+        yourSubDirectories.sort((a, b) => a.name.localeCompare(b.name));
+        for await (const mySubHandle of mySubDirectories){
+            mySubHandle.name
+
+        }
+
         //alphabetize mySubdictories and yourSubdirectories
         //iterate through mySubdirectories
         //if the name matches 
