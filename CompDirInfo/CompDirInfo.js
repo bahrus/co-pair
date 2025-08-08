@@ -45,13 +45,23 @@ export class CompDirInfo extends Scope {
         if(myHandle && !nameToDisplay){
             nameToDisplay = myHandle.name;
         }
-        const mySubDirectories = [];
+        const mySubDirectories = /** @type {Array<FileSystemDirectoryHandle>} */ ([]);
         for await (const [name, mySubHandle] of myHandle.entries()){
-            mySubDirectories.push(mySubHandle);
+            switch(mySubHandle.kind){
+                case 'directory':
+                    mySubDirectories.push(/** @type {FileSystemDirectoryHandle} */ (mySubHandle));
+                    break;
+            }
+            
         }
-        const yourSubDirectories = [];
+        const yourSubDirectories = /** @type {Array<FileSystemDirectoryHandle>} */ ([]);
         for await (const [name, yourSubHandle] of yourHandle.entries()){
-            yourSubDirectories.push(yourSubHandle);
+            switch(yourSubHandle.kind){
+                case 'directory':
+                    yourSubDirectories.push(/** @type {FileSystemDirectoryHandle} */ (yourSubHandle));
+                    break;
+            }
+            
         }
         const yourHandlelMap = Object.groupBy(yourSubDirectories,subDir => subDir.name);
         const myHandleMap = Object.groupBy(mySubDirectories, subDir => subDir.name);
