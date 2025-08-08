@@ -98,12 +98,12 @@ export class CompDirInfo extends Scope {
             const name = yourSubHandle.name;
             matches.add(name);
         }
-        const names = Array.from(matches).sort();
+        const subDirNames = Array.from(matches).sort();
         /**
          * @type {SubDirComp[]}
          */
         const subDirs = [];
-        for (const name of names){
+        for (const name of subDirNames){
             const mySubHandle = myHandleMap[name]?.[0];
             const yourSubHandle = yourHandleMap[name]?.[0];
             const onlyYoursExists = !mySubHandle && !!yourSubHandle;
