@@ -16,12 +16,10 @@ export class CompDirInfo extends Scope {
         propInfo: {
             myHandle: {},
             yourHandle: {},
-            name: {},
             subDirs: {},
             nameToDisplay: {},
         },
         xform: {
-            '| name': 0,
             '| nameToDisplay': 0,
         },
         actions: {
