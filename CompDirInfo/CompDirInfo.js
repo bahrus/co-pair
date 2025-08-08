@@ -56,11 +56,15 @@ export class CompDirInfo extends Scope {
             nameToDisplay = myHandle.name;
         }
         const mySubDirectories = /** @type {Array<FileSystemDirectoryHandle>} */ ([]);
+        const myFiles = /** @type {Array<FileSystemFileHandle>} */ ([]);
         if(myHandle !== undefined){
-            for await (const [name, mySubHandle] of myHandle.entries()){
-                switch(mySubHandle.kind){
+            for await (const [name, myFileOrSubHandle] of myHandle.entries()){
+                switch(myFileOrSubHandle.kind){
                     case 'directory':
-                        mySubDirectories.push(/** @type {FileSystemDirectoryHandle} */ (mySubHandle));
+                        mySubDirectories.push(/** @type {FileSystemDirectoryHandle} */ (myFileOrSubHandle));
+                        break;
+                    case 'file':
+                        myFiles.push(/** @type {FileSystemFileHandle} */ (myFileOrSubHandle));
                         break;
                 }
                 
@@ -68,11 +72,15 @@ export class CompDirInfo extends Scope {
         }
 
         const yourSubDirectories = /** @type {Array<FileSystemDirectoryHandle>} */ ([]);
+        const yourFiles = /** @type {Array<FileSystemFileHandle>} */ ([]);
         if(yourHandle !== undefined){
-            for await (const [name, yourSubHandle] of yourHandle.entries()){
-                switch(yourSubHandle.kind){
+            for await (const [name, yourFileOrSubHandle] of yourHandle.entries()){
+                switch(yourFileOrSubHandle.kind){
                     case 'directory':
-                        yourSubDirectories.push(/** @type {FileSystemDirectoryHandle} */ (yourSubHandle));
+                        yourSubDirectories.push(/** @type {FileSystemDirectoryHandle} */ (yourFileOrSubHandle));
+                        break;
+                    case 'file':
+                        yourFiles.push(/** @type {FileSystemFileHandle} */ (yourFileOrSubHandle));
                         break;
                 }
                 
@@ -102,7 +110,7 @@ export class CompDirInfo extends Scope {
             subDirs.push({
                 myHandle: mySubHandle,
                 yourHandle: yourSubHandle,
-                weMatch: !!yourSubHandle,
+                weMatch: !!mySubHandle === !!yourSubHandle,
                 onlyYoursExists,
                 onlyMineExists: !!mySubHandle && !yourSubHandle,
                 nameToDisplay: onlyYoursExists ? '' : name,
