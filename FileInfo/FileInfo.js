@@ -1,10 +1,11 @@
 //@ts-check
 /** @import {AP, Actions, PAP, } from './types' */
 /** @import {IshConfig } from '../ts-refs/trans-render/froop/types' */
-/** @import {ITransformer, XForm} from '../ts-refs/trans-render/types' */
+/** @import {ITransformer, XForm, RHS} from '../ts-refs/trans-render/types' */
 
-import {Scope} from 'trans-render/froop/Scope.js';
+import {Scope, _ as __} from 'trans-render/froop/Scope.js';
 
+const _ = /** @type {RHS<AP, Actions>} */({a: 0, o: []});
 /**
  * @implements {Actions}
  */
@@ -19,7 +20,7 @@ export class FileInfo extends Scope{
         },
         xform: {
             '| name': 0,
-            '@ delete': {a: 0, o: []}
+            '@ delete': _,
         },
         compacts:{
             when_handle_changes_call_getInfo: 0,

@@ -23,7 +23,7 @@
     "folder-picker": "0.0.1",
     "mount-observer": "0.0.82",
     "per-each": "0.0.5",
-    "trans-render": "0.0.916"
+    "trans-render": "0.0.917"
   },
   "scripts": {
     "serve": "python ./node_modules/ssi-server/ssi_server.py",
