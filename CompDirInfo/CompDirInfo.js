@@ -63,7 +63,7 @@ export class CompDirInfo extends Scope {
             }
             
         }
-        const yourHandlelMap = Object.groupBy(yourSubDirectories,subDir => subDir.name);
+        const yourHandleMap = Object.groupBy(yourSubDirectories,subDir => subDir.name);
         const myHandleMap = Object.groupBy(mySubDirectories, subDir => subDir.name);
         const matches = new Set();
         for (const mySubHandle of mySubDirectories){
@@ -77,7 +77,7 @@ export class CompDirInfo extends Scope {
         const names = Array.from(matches).sort();
         for (const name of names){
             const mySubHandle = myHandleMap[name]?.[0];
-            const yourSubHandle = yourHandlelMap[name]?.[0];
+            const yourSubHandle = yourHandleMap[name]?.[0];
             const onlyYoursExists = !mySubHandle && !!yourSubHandle;
             subDirs.push({
                 myHandle: mySubHandle,
