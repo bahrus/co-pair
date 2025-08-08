@@ -16,28 +16,28 @@ export class CompFileInfo extends Scope{
      */
     static config = {
         propInfo: {
-            handle: {},
+            myHandle: {},
             nameToDisplay:{},
         },
         xform: {
             '| nameToDisplay': 0,
             '@ delete': _,
         },
-        compacts:{
-            when_handle_changes_call_getInfo: 0,
-        }
+        // compacts:{
+        //     when_handle_changes_call_getInfo: 0,
+        // }
     }
 
-    /**
-     * 
-     * @param {AP} self 
-     * @returns 
-     */
-    getInfo(self){
-        return /** @type {PAP} */({
-            //name: self.handle.name,
-        });
-    }
+    // /**
+    //  * 
+    //  * @param {AP} self 
+    //  * @returns 
+    //  */
+    // getInfo(self){
+    //     return /** @type {PAP} */({
+    //         //name: self.handle.name,
+    //     });
+    // }
 
     /**
      * @param {Event} evt
@@ -46,8 +46,9 @@ export class CompFileInfo extends Scope{
      */
     async delete(evt, transformer){
         const {model, target} = transformer;
-        const {handle} = model;
-        await handle.remove();
+        const {myHandle} = model;
+        if(myHandle === undefined) return;
+        await myHandle.remove();
         if(target instanceof Element){
             target.remove();
         }

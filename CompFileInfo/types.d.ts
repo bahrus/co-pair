@@ -1,10 +1,10 @@
 import {ITransformer} from '../ts-refs/trans-render/types';
-import {Comp} from '../CompDirInfo/types';
+import {FileComp} from '../CompDirInfo/types';
 export interface EndUserProps {
-    handle: FileSystemHandle;
+    //handle: FileSystemHandle;
 }
 
-export interface AllProps extends EndUserProps, Comp {
+export interface AllProps extends EndUserProps, FileComp {
     
 }
 
@@ -15,7 +15,7 @@ export type PAP = Partial<AllProps>;
 export type ProPAP = Promise<PAP>;
 
 export interface Actions {
-    getInfo(self: AP): PAP;
+    //getInfo(self: AP): PAP;
     delete(evt: Event, transformer: ITransformer<AP, Actions>): Promise<void>;
 }
 
