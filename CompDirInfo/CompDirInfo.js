@@ -3,6 +3,7 @@
 /** @import {IshConfig } from '../ts-refs/trans-render/froop/types' */
 
 import {Scope} from 'trans-render/froop/Scope.js';
+import { match } from 'trans-render/lib/specialKeys.js';
 
 /**
  * @implements {Actions}
@@ -49,45 +50,31 @@ export class CompDirInfo extends Scope {
         for await (const [name, yourSubHandle] of yourHandle.entries()){
             yourSubDirectories.push(yourSubHandle);
         }
-        //aplhabetize subdirectories
-        mySubDirectories.sort((a, b) => a.name.localeCompare(b.name));
-        yourSubDirectories.sort((a, b) => a.name.localeCompare(b.name));
-        //chatgpt suggested I use a map to speed up the lookup
-
-        const yourHandleMap = new Map(
-            yourSubDirectories.map((subDir) => [subDir.name, subDir])
-
-        );
-        // It says the purpose of this line is to track names alreayd matched
-        //I however don't undestand how this is doing that
+        const yourHandlelMap = Object.groupBy(yourSubDirectories,subDir => subDir.name);
+        const myHandleMap = Object.groupBy(mySubDirectories, subDir => subDir.name);
         const matches = new Set();
-        for await (const mySubHandle of mySubDirectories){
-            const name = mySubHandle.name
-            const yourSubHandle = yourHandleMap.get(name);
+        for (const mySubHandle of mySubDirectories){
+            const name = mySubHandle.name;
+            matches.add(name);
+        }
+        for (const yourSubHandle of yourSubDirectories){
+            const name = yourSubHandle.name;
+            matches.add(name);
+        }
+        const names = Array.from(matches).sort();
+        for (const name of names){
+            const mySubHandle = myHandleMap[name]?.[0];
+            const yourSubHandle = yourHandlelMap[name]?.[0];
+            const onlyYoursExists = !mySubHandle && !!yourSubHandle;
             subDirs.push({
-                myHandle : mySubHandle,
+                myHandle: mySubHandle,
                 yourHandle: yourSubHandle,
                 weMatch: !!yourSubHandle,
-                onlyYoursExists: false,
-                onnlyMineExists: !yourSubHandle,
-                nameToDisplay: mySubHandle.name,
-            })
-            console.log(subDirs)
-
-
-
+                onlyYoursExists,
+                onlyMineExists: !!mySubHandle && !yourSubHandle,
+                nameToDisplay: onlyYoursExists ? '' : name,
+            });
         }
-
-        //alphabetize mySubdictories and yourSubdirectories
-        //iterate through mySubdirectories
-        //if the name matches 
-        //push into subDirs
-        //iterate through yoursubs
-        // subDirs.push({
-        //     weMatch: true,
-        //     myHandle: 
-
-        // });
         return /** @type {PAP} */({
             name: myHandle.name,
             subDirs,
