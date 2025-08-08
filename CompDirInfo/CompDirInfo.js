@@ -41,7 +41,10 @@ export class CompDirInfo extends Scope {
          * @type {SubDir[]}
          */
         const subDirs = [];
-        const {myHandle, yourHandle} = self;
+        let {myHandle, yourHandle, nameToDisplay} = self;
+        if(myHandle && !nameToDisplay){
+            nameToDisplay = myHandle.name;
+        }
         const mySubDirectories = [];
         for await (const [name, mySubHandle] of myHandle.entries()){
             mySubDirectories.push(mySubHandle);
@@ -76,7 +79,7 @@ export class CompDirInfo extends Scope {
             });
         }
         return /** @type {PAP} */({
-            name: myHandle.name,
+            nameToDisplay,
             subDirs,
         });
     }
