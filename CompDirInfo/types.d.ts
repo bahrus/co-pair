@@ -5,6 +5,7 @@ export interface EndUserProps {
 
 export interface AllProps extends EndUserProps, SubDirComp {
     subDirs: Array<SubDirComp>;
+    files: Array<FileComp>;
 }
 
 export type AP = AllProps;

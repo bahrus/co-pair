@@ -87,6 +87,8 @@ export class CompDirInfo extends Scope {
             }
         }
 
+        //#region subdirectories
+
         const yourSubdirectoryMap = Object.groupBy(yourSubDirectories,subDir => subDir.name);
         const mySubdirectoryMap = Object.groupBy(mySubDirectories, subDir => subDir.name);
         const ourSubdirNames = new Set();
@@ -116,6 +118,10 @@ export class CompDirInfo extends Scope {
                 nameToDisplay: onlyYoursExists ? '' : name,
             });
         }
+
+        //#endregion subdirectories
+        
+        
         return /** @type {PAP} */({
             nameToDisplay,
             subDirs,
