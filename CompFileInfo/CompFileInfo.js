@@ -22,6 +22,11 @@ export class CompFileInfo extends Scope{
         xform: {
             '| nameToDisplay': 0,
             '@ delete': _,
+            ':root':[
+                {s: '?.dataset?.onlyYoursExists', o: 'onlyYoursExists'},
+                {s: '?.dataset?.onlyMineExists', o: 'onlyMineExists'},
+                {s: '?.dataset?.weMatch', o: 'weMatch'},
+            ]
         },
 
     }
