@@ -15,8 +15,8 @@
             </li>
         </ul>
         <ul itemscope=DirList itemprop=files>
-            <li per-each="FileInfo of DirList">
-                File: <span itemprop=name></span>
+            <li per-each="CompFileInfo of DirList">
+                File: <span itemprop=nameToDisplay></span>
                 <button name=delete>Delete</button>
             </li>
         </ul>        
@@ -83,8 +83,8 @@
         import { DirList } from '/DirList/DirList.js';
         regIsh(document.body, 'DirList', DirList);
 
-        import { FileInfo } from '/FileInfo/FileInfo.js';
-        regIsh(document.body, 'FileInfo', FileInfo);
+        import { CompFileInfo } from '/CompFileInfo/CompFileInfo.js';
+        regIsh(document.body, 'CompFileInfo', CompFileInfo);
 
     </script>
 </body>

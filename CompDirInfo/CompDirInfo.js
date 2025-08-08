@@ -17,6 +17,7 @@ export class CompDirInfo extends Scope {
             myHandle: {},
             yourHandle: {},
             subDirs: {},
+            files: {},
             nameToDisplay: {},
             onlyYoursExists: {
                 def: false,
