@@ -92,9 +92,8 @@ export class CompDirInfo extends Scope {
         const yourSubdirectoryMap = Object.groupBy(yourSubDirectories, subDir => subDir.name);
         const mySubdirectoryMap = Object.groupBy(mySubDirectories, subDir => subDir.name);
         const ourSubdirNames = new Set();
-        for (const mySubHandle of [...mySubDirectories, ...yourSubDirectories]){
-            const name = mySubHandle.name;
-            ourSubdirNames.add(name);
+        for (const ourSubHandle of [...mySubDirectories, ...yourSubDirectories]){
+            ourSubdirNames.add(ourSubHandle.name);
         }
         const ourSortedSubdirNames = Array.from(ourSubdirNames).sort();
         /**
@@ -121,7 +120,9 @@ export class CompDirInfo extends Scope {
         const yourFileMap = Object.groupBy(yourFiles, x => x.name);
         const myFileMap = Object.groupBy(myFiles, x => x.name);
         const ourFileNames = new Set();
-
+        for(const ourFileHandle of [...myFiles, ...yourFiles]){
+            ourFileNames.add(ourFileHandle.name);
+        }
         //#endregion files
         return /** @type {PAP} */({
             nameToDisplay,
