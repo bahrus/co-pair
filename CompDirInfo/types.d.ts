@@ -25,8 +25,8 @@ export interface SubDirComp extends Comp {
 }
 
 export interface FileComp extends Comp {
-    myFileHandle: FileSystemHandle | undefined;
-    yourFileHandle: FileSystemHandle | undefined;
+    myHandle: FileSystemHandle | undefined;
+    yourHandle: FileSystemHandle | undefined;
 }
 
 export interface Comp {

@@ -1,5 +1,5 @@
 //@ts-check
-/** @import {AP, Actions, PAP, SubDirComp} from './types' */
+/** @import {AP, Actions, FileComp, PAP, SubDirComp} from './types' */
 /** @import {IshConfig } from '../ts-refs/trans-render/froop/types' */
 
 import {Scope} from 'trans-render/froop/Scope.js';
@@ -123,10 +123,28 @@ export class CompDirInfo extends Scope {
         for(const ourFileHandle of [...myFiles, ...yourFiles]){
             ourFileNames.add(ourFileHandle.name);
         }
+        /**
+         * @type {FileComp[]}
+         */
+        const files = [];
+        for(const name of ourSortedSubdirNames){
+            const myFileHandle = myFileMap[name]?.[0];
+            const yourFileHandle = yourFileMap[name]?.[0];
+            const onlyYoursExists = !myFileHandle && !!yourFileHandle;
+            files.push({
+                myHandle: myFileHandle,
+                yourHandle: yourFileHandle,
+                weMatch: !!myFileHandle === !!yourFileHandle,
+                onlyYoursExists,
+                onlyMineExists: !!myFileHandle && !yourFileHandle,
+                nameToDisplay: onlyYoursExists ? '' : name,
+            });
+        }
         //#endregion files
         return /** @type {PAP} */({
             nameToDisplay,
             subDirs,
+            files,
         });
     }
 }
