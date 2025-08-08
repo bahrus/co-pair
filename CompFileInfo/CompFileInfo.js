@@ -3,6 +3,8 @@
 /** @import {IshConfig } from '../ts-refs/trans-render/froop/types' */
 /** @import {ITransformer, XForm} from '../ts-refs/trans-render/types' */
 
+const _ = /** @type {RHS<AP, Actions>} */({a: 0, o: []});
+
 import {Scope} from 'trans-render/froop/Scope.js';
 
 /**
@@ -19,7 +21,7 @@ export class CompFileInfo extends Scope{
         },
         xform: {
             '| nameToDisplay': 0,
-            '@ delete': {a: 0, o: []}
+            '@ delete': _,
         },
         compacts:{
             when_handle_changes_call_getInfo: 0,
