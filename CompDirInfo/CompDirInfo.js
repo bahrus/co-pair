@@ -18,9 +18,16 @@ export class CompDirInfo extends Scope {
             yourHandle: {},
             subDirs: {},
             nameToDisplay: {},
+            onlyYoursExists: {
+                def: false,
+            },
         },
         xform: {
             '| nameToDisplay': 0,
+            ':root':[
+                {s: '?.dataset?.onlyYoursExists', o: 'onlyYoursExists'}
+            ]
+                
         },
         actions: {
             getInfo: {

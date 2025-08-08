@@ -1,10 +1,9 @@
 export interface EndUserProps {
-    myHandle: FileSystemDirectoryHandle;
-    yourHandle: FileSystemDirectoryHandle;
+    myHandle: FileSystemDirectoryHandle | undefined;
+    yourHandle: FileSystemDirectoryHandle | undefined;
 }
 
-export interface AllProps extends EndUserProps {
-    nameToDisplay: string;
+export interface AllProps extends EndUserProps, SubDir {
     subDirs: Array<SubDir>;
 }
 
