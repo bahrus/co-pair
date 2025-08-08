@@ -23,21 +23,10 @@ export class CompFileInfo extends Scope{
             '| nameToDisplay': 0,
             '@ delete': _,
         },
-        // compacts:{
-        //     when_handle_changes_call_getInfo: 0,
-        // }
+
     }
 
-    // /**
-    //  * 
-    //  * @param {AP} self 
-    //  * @returns 
-    //  */
-    // getInfo(self){
-    //     return /** @type {PAP} */({
-    //         //name: self.handle.name,
-    //     });
-    // }
+
 
     /**
      * @param {Event} evt
