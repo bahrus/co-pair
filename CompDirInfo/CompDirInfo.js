@@ -121,7 +121,9 @@ export class CompDirInfo extends Scope {
 
         //#endregion subdirectories
         
+        //#region  files
         
+        //#endregion files
         return /** @type {PAP} */({
             nameToDisplay,
             subDirs,
