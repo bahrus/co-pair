@@ -87,25 +87,25 @@ export class CompDirInfo extends Scope {
             }
         }
 
-        const yourHandleMap = Object.groupBy(yourSubDirectories,subDir => subDir.name);
-        const myHandleMap = Object.groupBy(mySubDirectories, subDir => subDir.name);
-        const matches = new Set();
+        const yourSubdirectoryMap = Object.groupBy(yourSubDirectories,subDir => subDir.name);
+        const mySubdirectoryMap = Object.groupBy(mySubDirectories, subDir => subDir.name);
+        const ourSubdirNames = new Set();
         for (const mySubHandle of mySubDirectories){
             const name = mySubHandle.name;
-            matches.add(name);
+            ourSubdirNames.add(name);
         }
         for (const yourSubHandle of yourSubDirectories){
             const name = yourSubHandle.name;
-            matches.add(name);
+            ourSubdirNames.add(name);
         }
-        const subDirNames = Array.from(matches).sort();
+        const ourSortedSubdirNames = Array.from(ourSubdirNames).sort();
         /**
          * @type {SubDirComp[]}
          */
         const subDirs = [];
-        for (const name of subDirNames){
-            const mySubHandle = myHandleMap[name]?.[0];
-            const yourSubHandle = yourHandleMap[name]?.[0];
+        for (const name of ourSortedSubdirNames){
+            const mySubHandle = mySubdirectoryMap[name]?.[0];
+            const yourSubHandle = yourSubdirectoryMap[name]?.[0];
             const onlyYoursExists = !mySubHandle && !!yourSubHandle;
             subDirs.push({
                 myHandle: mySubHandle,
