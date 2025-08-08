@@ -21,11 +21,19 @@ export class CompDirInfo extends Scope {
             onlyYoursExists: {
                 def: false,
             },
+            onlyMineExists: {
+                def: true,
+            },
+            weMatch:{
+                def: false,
+            }
         },
         xform: {
             '| nameToDisplay': 0,
             ':root':[
-                {s: '?.dataset?.onlyYoursExists', o: 'onlyYoursExists'}
+                {s: '?.dataset?.onlyYoursExists', o: 'onlyYoursExists'},
+                {s: '?.dataset?.onlyMineExists', o: 'onlyMineExists'},
+                {s: '?.dataset?.weMatch', o: 'weMatch',}
             ]
                 
         },
