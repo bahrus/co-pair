@@ -33,7 +33,7 @@ export class CompDirInfo extends Scope {
             ':root':[
                 {s: '?.dataset?.onlyYoursExists', o: 'onlyYoursExists'},
                 {s: '?.dataset?.onlyMineExists', o: 'onlyMineExists'},
-                {s: '?.dataset?.weMatch', o: 'weMatch',}
+                {s: '?.dataset?.weMatch', o: 'weMatch'},
             ]
                 
         },
@@ -50,10 +50,7 @@ export class CompDirInfo extends Scope {
      * @returns 
      */
     async getInfo(self){
-        /**
-         * @type {SubDirComp[]}
-         */
-        const subDirs = [];
+
         let {myHandle, yourHandle, nameToDisplay} = self;
         if(myHandle && !nameToDisplay){
             nameToDisplay = myHandle.name;
@@ -94,6 +91,10 @@ export class CompDirInfo extends Scope {
             matches.add(name);
         }
         const names = Array.from(matches).sort();
+        /**
+         * @type {SubDirComp[]}
+         */
+        const subDirs = [];
         for (const name of names){
             const mySubHandle = myHandleMap[name]?.[0];
             const yourSubHandle = yourHandleMap[name]?.[0];
