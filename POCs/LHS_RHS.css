@@ -3,3 +3,7 @@ ul {
       list-style-type: none; /* Removes bullets */
       
 }
+
+[data-only-yours-exists="true"]>*{
+    visibility: hidden;
+}
