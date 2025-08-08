@@ -43,9 +43,9 @@
                 <!-- lhs -->
                 <td>
                     <details itemscope=CompDirInfo 
-                        when-resolved="
-                            @lhsDirPick+📁⛏️ set $0?.ish?.myHandle to directoryHandle.
-                            @rhsDirPick+📁⛏️ set $0?.ish?.yourHandle to directoryHandle.
+                        be-enhancing="
+                            @lhsDirPick with 📁⛏️ and set $0?.ish?.myHandle to directoryHandle.
+                            @rhsDirPick with 📁⛏️ and set $0?.ish?.yourHandle to directoryHandle.
                         ">
                         <summary itemprop=nameToDisplay></summary>
                         <template 🎚️="on when ^{details}." rel=preload src=#dirs-files></template>
@@ -54,9 +54,9 @@
                 <!-- rhs -->
                 <td>
                     <details itemscope=CompDirInfo 
-                        when-resolved="
-                            @rhsDirPick+📁⛏️ set $0?.ish?.myHandle to directoryHandle.
-                            @lhsDirPick+📁⛏️ set $0?.ish?.yourHandle to directoryHandle.
+                        be-enhancing="
+                            @rhsDirPick with 📁⛏️ and set $0?.ish?.myHandle to directoryHandle.
+                            @lhsDirPick with 📁⛏️ and set $0?.ish?.yourHandle to directoryHandle.
                         ">
                         <summary itemprop=nameToDisplay></summary>
                         <template 🎚️="on when ^{details}." rel=preload src=#dirs-files></template>
@@ -68,7 +68,7 @@
 
     <script type=module>
         import 'folder-picker/📁⛏️.js';
-        import 'when-resolved/emc.js';
+        import 'be-enhancing/emc.js';
         
         import 'per-each/emc.js';
         import { regIsh } from 'mount-observer/refid/regIsh.js';
