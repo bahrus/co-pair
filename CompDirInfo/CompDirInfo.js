@@ -1,5 +1,5 @@
 //@ts-check
-/** @import {AP, Actions, PAP, SubDir} from './types' */
+/** @import {AP, Actions, PAP, SubDirComp} from './types' */
 /** @import {IshConfig } from '../ts-refs/trans-render/froop/types' */
 
 import {Scope} from 'trans-render/froop/Scope.js';
@@ -51,7 +51,7 @@ export class CompDirInfo extends Scope {
      */
     async getInfo(self){
         /**
-         * @type {SubDir[]}
+         * @type {SubDirComp[]}
          */
         const subDirs = [];
         let {myHandle, yourHandle, nameToDisplay} = self;
@@ -59,23 +59,29 @@ export class CompDirInfo extends Scope {
             nameToDisplay = myHandle.name;
         }
         const mySubDirectories = /** @type {Array<FileSystemDirectoryHandle>} */ ([]);
-        for await (const [name, mySubHandle] of myHandle.entries()){
-            switch(mySubHandle.kind){
-                case 'directory':
-                    mySubDirectories.push(/** @type {FileSystemDirectoryHandle} */ (mySubHandle));
-                    break;
+        if(myHandle !== undefined){
+            for await (const [name, mySubHandle] of myHandle.entries()){
+                switch(mySubHandle.kind){
+                    case 'directory':
+                        mySubDirectories.push(/** @type {FileSystemDirectoryHandle} */ (mySubHandle));
+                        break;
+                }
+                
             }
-            
         }
+
         const yourSubDirectories = /** @type {Array<FileSystemDirectoryHandle>} */ ([]);
-        for await (const [name, yourSubHandle] of yourHandle.entries()){
-            switch(yourSubHandle.kind){
-                case 'directory':
-                    yourSubDirectories.push(/** @type {FileSystemDirectoryHandle} */ (yourSubHandle));
-                    break;
+        if(yourHandle !== undefined){
+            for await (const [name, yourSubHandle] of yourHandle.entries()){
+                switch(yourSubHandle.kind){
+                    case 'directory':
+                        yourSubDirectories.push(/** @type {FileSystemDirectoryHandle} */ (yourSubHandle));
+                        break;
+                }
+                
             }
-            
         }
+
         const yourHandleMap = Object.groupBy(yourSubDirectories,subDir => subDir.name);
         const myHandleMap = Object.groupBy(mySubDirectories, subDir => subDir.name);
         const matches = new Set();

@@ -3,8 +3,8 @@ export interface EndUserProps {
     yourHandle: FileSystemDirectoryHandle | undefined;
 }
 
-export interface AllProps extends EndUserProps, SubDir {
-    subDirs: Array<SubDir>;
+export interface AllProps extends EndUserProps, SubDirComp {
+    subDirs: Array<SubDirComp>;
 }
 
 export type AP = AllProps;
@@ -17,9 +17,18 @@ export interface Actions {
     getInfo(self: AP): ProPAP;
 }
 
-export interface SubDir {
+export interface SubDirComp extends Comp {
     myHandle: FileSystemDirectoryHandle | undefined;
     yourHandle: FileSystemDirectoryHandle | undefined;
+    
+}
+
+export interface FileComp extends Comp {
+    myFileHandle: FileSystemHandle | undefined;
+    yourFileHandle: FileSystemHandle | undefined;
+}
+
+export interface Comp {
     weMatch: boolean;
     onlyYoursExists: boolean;
     onlyMineExists: boolean;
