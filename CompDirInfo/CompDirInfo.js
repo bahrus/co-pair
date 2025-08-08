@@ -124,11 +124,12 @@ export class CompDirInfo extends Scope {
         for(const ourFileHandle of [...myFiles, ...yourFiles]){
             ourFileNames.add(ourFileHandle.name);
         }
+        const ourSortedFileNames = Array.from(ourFileNames).sort();
         /**
          * @type {FileComp[]}
          */
         const files = [];
-        for(const name of ourSortedSubdirNames){
+        for(const name of ourSortedFileNames){
             const myFileHandle = myFileMap[name]?.[0];
             const yourFileHandle = yourFileMap[name]?.[0];
             const onlyYoursExists = !myFileHandle && !!yourFileHandle;
