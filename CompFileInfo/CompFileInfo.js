@@ -26,6 +26,7 @@ export class CompFileInfo extends Scope{
                 {s: '?.dataset?.onlyYoursExists', o: 'onlyYoursExists'},
                 {s: '?.dataset?.onlyMineExists', o: 'onlyMineExists'},
                 {s: '?.dataset?.weMatch', o: 'weMatch'},
+                {data: ['onlyYoursExists', 'onlyMineExists', 'weMatch']}
             ]
         },
 
