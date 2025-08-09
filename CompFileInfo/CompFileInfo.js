@@ -1,7 +1,7 @@
 //@ts-check
 /** @import {AP, Actions, PAP, } from './types' */
 /** @import {IshConfig } from '../ts-refs/trans-render/froop/types' */
-/** @import {ITransformer, XForm} from '../ts-refs/trans-render/types' */
+/** @import {ITransformer, XForm, RHS} from '../ts-refs/trans-render/types' */
 
 const _ = /** @type {RHS<AP, Actions>} */({a: 0, o: []});
 
