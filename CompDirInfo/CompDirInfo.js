@@ -32,9 +32,7 @@ export class CompDirInfo extends Scope {
         xform: {
             '| nameToDisplay': 0,
             ':root':[
-                {s: '?.dataset?.onlyYoursExists', o: 'onlyYoursExists'},
-                {s: '?.dataset?.onlyMineExists', o: 'onlyMineExists'},
-                {s: '?.dataset?.weMatch', o: 'weMatch'},
+                {data: ['onlyYoursExists', 'onlyMineExists', 'weMatch']}
             ]
                 
         },
