@@ -15,15 +15,14 @@
     "ssi-server": "0.0.1"
   },
   "dependencies": {
-    "be-directive": "0.0.3",
-    "be-enhanced": "0.0.182",
-    "be-enhancing": "0.0.1",
-    "be-hive": "0.0.262",
-    "be-switched": "0.0.129",
-    "folder-picker": "0.0.1",
-    "mount-observer": "0.0.87",
-    "per-each": "0.0.6",
-    "trans-render": "0.0.920"
+    "be-enhanced": "0.0.183",
+    "be-enhancing": "0.0.2",
+    "be-hive": "0.0.263",
+    "be-switched": "0.0.130",
+    "folder-picker": "0.0.2",
+    "mount-observer": "0.0.88",
+    "per-each": "0.0.7",
+    "trans-render": "0.0.921"
   },
   "scripts": {
     "serve": "python ./node_modules/ssi-server/ssi_server.py",
