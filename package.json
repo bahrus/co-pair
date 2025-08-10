@@ -19,11 +19,11 @@
     "be-enhanced": "0.0.182",
     "be-enhancing": "0.0.1",
     "be-hive": "0.0.262",
-    "be-switched": "0.0.128",
+    "be-switched": "0.0.129",
     "folder-picker": "0.0.1",
-    "mount-observer": "0.0.86",
-    "per-each": "0.0.5",
-    "trans-render": "0.0.919"
+    "mount-observer": "0.0.87",
+    "per-each": "0.0.6",
+    "trans-render": "0.0.920"
   },
   "scripts": {
     "serve": "python ./node_modules/ssi-server/ssi_server.py",
