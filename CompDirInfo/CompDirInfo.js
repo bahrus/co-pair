@@ -32,12 +32,18 @@ export class CompDirInfo extends Scope {
             updateCnt: {
                 def: 1,
             },
-            elRef: {},
+            // elRef: {},
         },
         xform: {
             '| nameToDisplay': 0,
             ':root':[
-                {data: ['onlyYoursExists', 'onlyMineExists', 'weMatch']}
+                {data: ['onlyYoursExists', 'onlyMineExists', 'weMatch']},
+                {m: {
+                    on: FileDeletedEvent.eventName,
+                    inc: 'updateCnt',
+                    byAmt: 1,
+                    stopPropagation: true, 
+                }}
             ]
                 
         },
@@ -46,10 +52,7 @@ export class CompDirInfo extends Scope {
                 ifAllOf: ['myHandle', 'yourHandle', 'updateCnt'],
             }
         },
-        mapElTo: 'elRef',
-        compacts: {
-            when_elRef_changes_call_hydrate: 0,
-        }
+
     }
 
     /**
@@ -156,28 +159,7 @@ export class CompDirInfo extends Scope {
         });
     }
 
-    /**
-     * 
-     * @param {Event} e 
-     */
-    handleEvent(e){
-        const self = /** @type {AP} */ (/** @type {any} */ (this));
-        if(e instanceof FileDeletedEvent){
-            e.preventDefault();
-            e.stopPropagation();
-        }
-        self.updateCnt++;
-    }
-
-    /**
-     * 
-     * @param {AP} self 
-     * @returns 
-     */
-    hydrate(self){
-        const {elRef} = self;
-        elRef.deref()?.addEventListener(FileDeletedEvent.eventName, this);
-    }
+ 
 }
 
 CompDirInfo.bootUp();

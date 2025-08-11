@@ -9,12 +9,12 @@ import {Scope} from 'trans-render/froop/Scope.js';
  * @implements {Actions}
  */
 export class DirList extends Scope{
-    /**
-     * @type {IshConfig<AP & Scope, Actions>}
-     */
-    static config = {
-        xform:{},
-    }
+    // /**
+    //  * @type {IshConfig<AP & Scope, Actions>}
+    //  */
+    // static config = {
+    //     //xform:{},
+    // }
 
 
 }
