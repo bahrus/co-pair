@@ -32,12 +32,14 @@ export class CompDirInfo extends Scope {
             updateCnt: {
                 def: 1,
             },
-            // elRef: {},
+            hasContentToDisplay: {
+                def: true,
+            }
         },
         xform: {
             '| nameToDisplay': 0,
             ':root':[
-                {data: ['onlyYoursExists', 'onlyMineExists', 'weMatch', 'nameToDisplay']},
+                {data: ['onlyYoursExists', 'onlyMineExists', 'weMatch', 'nameToDisplay', 'hasContentToDisplay']},
                 {m: {
                     on: FileDeletedEvent.eventName,
                     inc: 'updateCnt',
@@ -156,6 +158,7 @@ export class CompDirInfo extends Scope {
             nameToDisplay,
             subDirs,
             files,
+            hasContentToDisplay: subDirs.length > 0 || files.length > 0,
         });
     }
 

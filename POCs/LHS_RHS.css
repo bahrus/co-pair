@@ -7,3 +7,10 @@ ul {
 [data-only-yours-exists="true"]>*, [data-name-to-display="undefined"]{
     visibility: hidden;
 }
+li[data-has-content-to-display="false"] > details > summary {
+  list-style: none;
+}
+
+li[data-has-content-to-display="false"] details[data-has-content-to-display="false"] > summary::marker {
+  display: none;
+}
