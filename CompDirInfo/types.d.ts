@@ -6,6 +6,8 @@ export interface EndUserProps {
 export interface AllProps extends EndUserProps, SubDirComp {
     subDirs: Array<SubDirComp>;
     files: Array<FileComp>;
+    updateCnt: number;
+    elRef: WeakRef<Element>;
 }
 
 export type AP = AllProps;
@@ -16,6 +18,7 @@ export type ProPAP = Promise<PAP>;
 
 export interface Actions {
     getInfo(self: AP): ProPAP;
+    hydrate(self: AP): void;
 }
 
 export interface SubDirComp extends Comp {

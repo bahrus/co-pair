@@ -6,6 +6,7 @@ import {Scope} from 'trans-render/froop/Scope.js';
 
 /**
  * @implements {Actions}
+ * @implements {EventListenerObject}
  */
 export class CompDirInfo extends Scope {
     /**
@@ -26,7 +27,11 @@ export class CompDirInfo extends Scope {
             },
             weMatch:{
                 def: false,
-            }
+            },
+            updateCnt: {
+                def: 1,
+            },
+            elRef: {},
         },
         xform: {
             '| nameToDisplay': 0,
@@ -37,8 +42,12 @@ export class CompDirInfo extends Scope {
         },
         actions: {
             getInfo: {
-                ifAllOf: ['myHandle', 'yourHandle'],
+                ifAllOf: ['myHandle', 'yourHandle', 'updateCnt'],
             }
+        },
+        mapElTo: 'elRef',
+        compacts: {
+            when_elRef_changes_call_hydrate: 0,
         }
     }
 
@@ -48,7 +57,6 @@ export class CompDirInfo extends Scope {
      * @returns 
      */
     async getInfo(self){
-
         let {myHandle, yourHandle, nameToDisplay} = self;
         if(myHandle && !nameToDisplay){
             nameToDisplay = myHandle.name;
@@ -145,6 +153,21 @@ export class CompDirInfo extends Scope {
             subDirs,
             files,
         });
+    }
+
+    handleEvent(){
+        const self = /** @type {AP} */ (/** @type {any} */ (this));
+        self.updateCnt++;
+    }
+
+    /**
+     * 
+     * @param {AP} self 
+     * @returns 
+     */
+    hydrate(self){
+        const {elRef} = self;
+        elRef.deref()?.addEventListener('change', this);
     }
 }
 
