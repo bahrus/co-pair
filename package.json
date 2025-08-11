@@ -20,9 +20,9 @@
     "be-hive": "0.0.263",
     "be-switched": "0.0.130",
     "folder-picker": "0.0.2",
-    "mount-observer": "0.0.88",
-    "per-each": "0.0.7",
-    "trans-render": "0.0.923"
+    "mount-observer": "0.0.89",
+    "per-each": "0.0.8",
+    "trans-render": "0.0.924"
   },
   "scripts": {
     "serve": "python ./node_modules/ssi-server/ssi_server.py",
