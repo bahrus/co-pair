@@ -3,6 +3,7 @@
 /** @import {IshConfig } from '../ts-refs/trans-render/froop/types' */
 
 import {Scope} from 'trans-render/froop/Scope.js';
+import {FileDeletedEvent} from '../Events.js';
 
 /**
  * @implements {Actions}
@@ -155,8 +156,16 @@ export class CompDirInfo extends Scope {
         });
     }
 
-    handleEvent(){
+    /**
+     * 
+     * @param {Event} e 
+     */
+    handleEvent(e){
         const self = /** @type {AP} */ (/** @type {any} */ (this));
+        if(e instanceof FileDeletedEvent){
+            e.preventDefault();
+            e.stopPropagation();
+        }
         self.updateCnt++;
     }
 
@@ -167,7 +176,7 @@ export class CompDirInfo extends Scope {
      */
     hydrate(self){
         const {elRef} = self;
-        elRef.deref()?.addEventListener('change', this);
+        elRef.deref()?.addEventListener(FileDeletedEvent.eventName, this);
     }
 }
 

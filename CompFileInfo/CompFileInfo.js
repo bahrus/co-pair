@@ -6,6 +6,7 @@
 const _ = /** @type {RHS<AP, Actions>} */({a: 0, o: []});
 
 import {Scope} from 'trans-render/froop/Scope.js';
+import {FileDeletedEvent } from '../Events.js';
 
 /**
  * @implements {Actions}
@@ -51,9 +52,8 @@ export class CompFileInfo extends Scope{
         //     Object.assign(ish, result);
         // }
         if(target instanceof Element){
-            target.dispatchEvent(new Event('change', {bubbles: true}));
+            target.dispatchEvent(new FileDeletedEvent({bubbles: true, cancelable: true}));
         }
-        
         
     }
 
