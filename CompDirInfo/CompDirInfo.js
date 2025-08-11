@@ -3,7 +3,6 @@
 /** @import {IshConfig } from '../ts-refs/trans-render/froop/types' */
 
 import {Scope} from 'trans-render/froop/Scope.js';
-import { match } from 'trans-render/lib/specialKeys.js';
 
 /**
  * @implements {Actions}
