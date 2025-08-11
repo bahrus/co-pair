@@ -37,7 +37,7 @@ export class CompDirInfo extends Scope {
         xform: {
             '| nameToDisplay': 0,
             ':root':[
-                {data: ['onlyYoursExists', 'onlyMineExists', 'weMatch']},
+                {data: ['onlyYoursExists', 'onlyMineExists', 'weMatch', 'nameToDisplay']},
                 {m: {
                     on: FileDeletedEvent.eventName,
                     inc: 'updateCnt',

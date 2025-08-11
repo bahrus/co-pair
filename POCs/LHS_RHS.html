@@ -54,7 +54,7 @@
                 </td>
                 <!-- rhs -->
                 <td>
-                    <details itemscope=CompDirInfo 
+                    <details disabled itemscope=CompDirInfo 
                         be-enhancing="
                             @rhsDirPick with 📁⛏️ and set $0?.ish?.myHandle to directoryHandle.
                             @lhsDirPick with 📁⛏️ and set $0?.ish?.yourHandle to directoryHandle.
@@ -77,9 +77,6 @@
 
         import { CompDirInfo } from '/CompDirInfo/CompDirInfo.js';
         regIsh(document.body, 'CompDirInfo', CompDirInfo);
-
-        // import { DirList } from '/DirList/DirList.js';
-        // regIsh(document.body, 'DirList', DirList);
 
         import { CompFileInfo } from '/CompFileInfo/CompFileInfo.js';
         regIsh(document.body, 'CompFileInfo', CompFileInfo);

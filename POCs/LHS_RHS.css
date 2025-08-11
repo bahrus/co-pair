@@ -4,6 +4,6 @@ ul {
       
 }
 
-[data-only-yours-exists="true"]>*{
+[data-only-yours-exists="true"]>*, [data-name-to-display="undefined"]{
     visibility: hidden;
 }
