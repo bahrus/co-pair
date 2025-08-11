@@ -22,14 +22,14 @@ export interface Actions {
 }
 
 export interface SubDirComp extends Comp {
-    myHandle: FileSystemDirectoryHandle | undefined;
-    yourHandle: FileSystemDirectoryHandle | undefined;
+    myHandle: FileSystemDirectoryHandle | [] | undefined;
+    yourHandle: FileSystemDirectoryHandle | [] |  undefined;
     
 }
 
 export interface FileComp extends Comp {
-    myHandle: FileSystemHandle | undefined;
-    yourHandle: FileSystemHandle | undefined;
+    myHandle: FileSystemHandle | [] |  undefined;
+    yourHandle: FileSystemHandle | [] |  undefined;
 }
 
 export interface Comp {

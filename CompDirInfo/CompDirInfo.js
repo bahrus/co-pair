@@ -117,8 +117,8 @@ export class CompDirInfo extends Scope {
             const yourSubHandle = yourSubdirectoryMap[name]?.[0];
             const onlyYoursExists = !mySubHandle && !!yourSubHandle;
             subDirs.push({
-                myHandle: mySubHandle,
-                yourHandle: yourSubHandle,
+                myHandle: mySubHandle || [],
+                yourHandle: yourSubHandle || [],
                 weMatch: !!mySubHandle === !!yourSubHandle,
                 onlyYoursExists,
                 onlyMineExists: !!mySubHandle && !yourSubHandle,
@@ -145,8 +145,8 @@ export class CompDirInfo extends Scope {
             const yourFileHandle = yourFileMap[name]?.[0];
             const onlyYoursExists = !myFileHandle && !!yourFileHandle;
             files.push({
-                myHandle: myFileHandle,
-                yourHandle: yourFileHandle,
+                myHandle: myFileHandle || [],
+                yourHandle: yourFileHandle || [],
                 weMatch: !!myFileHandle === !!yourFileHandle,
                 onlyYoursExists,
                 onlyMineExists: !!myFileHandle && !yourFileHandle,
