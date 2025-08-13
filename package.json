@@ -21,8 +21,8 @@
     "be-switched": "0.0.130",
     "folder-picker": "0.0.2",
     "mount-observer": "0.0.89",
-    "per-each": "0.0.8",
-    "trans-render": "0.0.924"
+    "per-each": "0.0.9",
+    "trans-render": "0.0.926"
   },
   "scripts": {
     "serve": "python ./node_modules/ssi-server/ssi_server.py",
