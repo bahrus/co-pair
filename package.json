@@ -11,11 +11,11 @@
     "url": "git+https://github.com/bahrus/co-pair.git"
   },
   "devDependencies": {
-    "@playwright/test": "1.54.2",
+    "@playwright/test": "1.55.0",
     "ssi-server": "0.0.1"
   },
   "dependencies": {
-    "@awesome.me/webawesome": "0.0.61",
+    "@awesome.me/webawesome": "3.0.0-beta.4",
     "be-enhanced": "0.0.183",
     "be-enhancing": "0.0.2",
     "be-hive": "0.0.263",
