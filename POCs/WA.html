@@ -4,12 +4,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="https://early.webawesome.com/webawesome@3.0.0-beta.4/dist/styles/themes/default.css" />
-    <script type=module>
-       import '@awesome.me/webawesome/dist/components/tree/tree.js';
-    </script>
+
+    <!-- #include virtual="/imports.html" -->
+
+
+    <link rel="stylesheet" href="/webawesome.css" />
+    <script type="module" src="https://early.webawesome.com/webawesome@3.0.0-beta.4/dist/webawesome.loader.js"></script>
+
 </head>
 <body>
-    
+    <wa-tree class="tree-with-icons">
+        <wa-tree-item expanded>
+            <wa-icon name="folder" variant="regular"></wa-icon>
+            Documents
+
+            <wa-tree-item>
+            <wa-icon name="folder" variant="regular"> </wa-icon>
+            Photos
+            <wa-tree-item>
+                <wa-icon name="image" variant="regular"></wa-icon>
+                birds.jpg
+            </wa-tree-item>
+            <wa-tree-item>
+                <wa-icon name="image" variant="regular"></wa-icon>
+                kitten.jpg
+            </wa-tree-item>
+            <wa-tree-item>
+                <wa-icon name="image" variant="regular"></wa-icon>
+                puppy.jpg
+            </wa-tree-item>
+            </wa-tree-item>
+
+            <wa-tree-item>
+            <wa-icon name="folder" variant="regular"></wa-icon>
+            Writing
+            <wa-tree-item>
+                <wa-icon name="file" variant="regular"></wa-icon>
+                draft.txt
+            </wa-tree-item>
+            <wa-tree-item>
+                <wa-icon name="file-pdf" variant="regular"></wa-icon>
+                final.pdf
+            </wa-tree-item>
+            <wa-tree-item>
+                <wa-icon name="file-lines" variant="regular"></wa-icon>
+                sales.xls
+            </wa-tree-item>
+            </wa-tree-item>
+        </wa-tree-item>
+    </wa-tree>
 </body>
 </html>
