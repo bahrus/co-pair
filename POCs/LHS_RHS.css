@@ -18,3 +18,7 @@ li[data-has-content-to-display="false"] details[data-has-content-to-display="fal
 summary {
   list-style-type: '📁 ';
 }
+
+details[open]>summary {
+  list-style-type: '📂 ';
+}
