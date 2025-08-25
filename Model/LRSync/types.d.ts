@@ -12,5 +12,6 @@ export type PAP = Partial<AllProps>;
 export type ProPAP = Promise<PAP>;
 
 export interface Actions {
-    handleToggle(evt: Event, transformer: ITransformer<AP, Actions>): Promise<void>;
+    handleLHSToggle(evt: Event, transformer: ITransformer<AP, Actions>): Promise<void>;
+    handleRHSToggle(evt: Event, transformer: ITransformer<AP, Actions>): Promise<void>;
 }

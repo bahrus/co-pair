@@ -14,10 +14,17 @@ export class LRSync extends Scope{
      */
     static config = {
         xform: {
-            ':root': {
+            '* td[data-side="lhs"]': {
                 a: {
                     on: 'toggle',
-                    do: 'handleToggle',
+                    do: 'handleLHSToggle',
+                    options: {capture: true}
+                }
+            },
+            '* td[data-side="rhs"]': {
+                a: {
+                    on: 'toggle',
+                    do: 'handleRHSToggle',
                     options: {capture: true}
                 }
             }
@@ -29,8 +36,17 @@ export class LRSync extends Scope{
      * @param {Event} evt 
      * @param {ITransformer<AP, Actions>} transformer 
      */
-    async handleToggle(evt, transformer/*: ITransformer<AP, Actions>*/){
-        console.log('toggled', evt, transformer);
+    async handleLHSToggle(evt, transformer/*: ITransformer<AP, Actions>*/){
+        console.log('lhs - toggled', evt, transformer);
+    }
+
+        /**
+     * 
+     * @param {Event} evt 
+     * @param {ITransformer<AP, Actions>} transformer 
+     */
+    async handleRHSToggle(evt, transformer/*: ITransformer<AP, Actions>*/){
+        console.log('rhs - toggled', evt, transformer);
     }
 }
 
