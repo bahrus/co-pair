@@ -34,12 +34,14 @@ export class CompDirInfo extends Scope {
             },
             hasContentToDisplay: {
                 def: true,
-            }
+            },
+            parentPath: {},
+            path: {},
         },
         xform: {
             '| nameToDisplay': 0,
             ':root':[
-                {data: ['onlyYoursExists', 'onlyMineExists', 'weMatch', 'nameToDisplay', 'hasContentToDisplay']},
+                {data: ['onlyYoursExists', 'onlyMineExists', 'weMatch', 'nameToDisplay', 'hasContentToDisplay', 'path']},
                 {m: {
                     on: FileDeletedEvent.eventName,
                     inc: 'updateCnt',
@@ -63,10 +65,11 @@ export class CompDirInfo extends Scope {
      * @returns 
      */
     async getInfo(self){
-        let {myHandle, yourHandle, nameToDisplay} = self;
+        let {myHandle, yourHandle, nameToDisplay, parentPath} = self;
         if(myHandle && !nameToDisplay){
             nameToDisplay = myHandle.name;
         }
+        const path = `${parentPath ||  ''}/${nameToDisplay}`;
         const mySubDirectories = /** @type {Array<FileSystemDirectoryHandle>} */ ([]);
         const myFiles = /** @type {Array<FileSystemFileHandle>} */ ([]);
         if(myHandle !== undefined){
@@ -122,7 +125,8 @@ export class CompDirInfo extends Scope {
                 weMatch: !!mySubHandle === !!yourSubHandle,
                 onlyYoursExists,
                 onlyMineExists: !!mySubHandle && !yourSubHandle,
-                nameToDisplay: onlyYoursExists ? '' : name,
+                nameToDisplay: onlyYoursExists ? '' : name, 
+                parentPath: path,
             });
         }
 
@@ -159,6 +163,7 @@ export class CompDirInfo extends Scope {
             subDirs,
             files,
             hasContentToDisplay: subDirs.length > 0 || files.length > 0,
+            path,
         });
     }
 

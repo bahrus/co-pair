@@ -1,6 +1,7 @@
 export interface EndUserProps {
     myHandle: FileSystemDirectoryHandle | undefined;
     yourHandle: FileSystemDirectoryHandle | undefined;
+    parentPath: string;
 }
 
 export interface AllProps extends EndUserProps, SubDirComp {
@@ -8,6 +9,7 @@ export interface AllProps extends EndUserProps, SubDirComp {
     files: Array<FileComp>;
     updateCnt: number;
     hasContentToDisplay: boolean;
+    path: string;
 }
 
 export type AP = AllProps;
@@ -24,7 +26,7 @@ export interface Actions {
 export interface SubDirComp extends Comp {
     myHandle: FileSystemDirectoryHandle | [] | undefined;
     yourHandle: FileSystemDirectoryHandle | [] |  undefined;
-    
+    parentPath: string;
 }
 
 export interface FileComp extends Comp {

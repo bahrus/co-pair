@@ -39,7 +39,11 @@ export class LRSync extends Scope{
     async handleLHSToggle(evt, transformer, uow, listener){
         const {target} = evt;
         const ish = target?.closest('[itemscope]:not([itemscope=""])')?.ish;
-        console.log({msg: 'handleLHSToggle', target, ish, listener});
+        const {myHandle} = ish;
+        const {target: t} = transformer;
+        const rhsCompDirInfos = Array.from(t.querySelectorAll('td[data-side="rhs"] [itemscope="CompDirInfo"]'));
+        const rhs = rhsCompDirInfos.find(x => x.ish.yourHandle === myHandle);
+        console.log({msg: 'handleLHSToggle', target, ish, listener, rhs});
     }
 
         /**
