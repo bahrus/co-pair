@@ -36,8 +36,11 @@ export class LRSync extends Scope{
      * @param {Event} evt 
      * @param {ITransformer<AP, Actions>} transformer 
      */
-    async handleLHSToggle(evt, transformer/*: ITransformer<AP, Actions>*/){
-        console.log('lhs - toggled', evt, transformer);
+    async handleLHSToggle(evt, transformer, uow, listener){
+        const {target} = evt;
+        
+        const {ish} = target;
+        console.log({msg: 'handleLHSToggle', target, ish, listener});
     }
 
         /**
