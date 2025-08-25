@@ -1,4 +1,4 @@
-import {ITransformer} from '../ts-refs/trans-render/types';
+import {ITransformer} from '../../ts-refs/trans-render/types';
 export interface EndUserProps {
     handle: FileSystemHandle;
 }
