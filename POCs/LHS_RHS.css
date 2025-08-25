@@ -22,3 +22,8 @@ summary {
 details[open]>summary {
   list-style-type: '📂 ';
 }
+
+ul {
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
