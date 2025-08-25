@@ -39,7 +39,7 @@
                 <th>Right Hand Side</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody itemscope=LRSync>
             <tr>
                 <!-- lhs -->
                 <td>
@@ -80,6 +80,9 @@
 
         import { CompFileInfo } from '/Model/CompFileInfo/CompFileInfo.js';
         regIsh(document.body, 'CompFileInfo', CompFileInfo);
+
+        import { LRSync } from '/Model/LRSync/LRSync.js';
+        regIsh(document.body, 'LRSync', LRSync);
 
         import {Scope} from 'trans-render/froop/Scope.js';
         regIsh(document.body, 'Scope', Scope);
