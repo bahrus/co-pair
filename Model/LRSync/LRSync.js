@@ -14,17 +14,10 @@ export class LRSync extends Scope{
      */
     static config = {
         xform: {
-            '* td[data-side="lhs"]': {
+            '* td[data-side]': {
                 a: {
                     on: 'toggle',
-                    do: 'handleLHSToggle',
-                    options: {capture: true}
-                }
-            },
-            '* td[data-side="rhs"]': {
-                a: {
-                    on: 'toggle',
-                    do: 'handleRHSToggle',
+                    do: 'handleToggle',
                     options: {capture: true}
                 }
             }
@@ -36,28 +29,21 @@ export class LRSync extends Scope{
      * @param {Event} evt 
      * @param {ITransformer<AP, Actions>} transformer 
      */
-    async handleLHSToggle(evt, transformer, uow, listener){
+    async handleToggle(evt, transformer, uow, listener){
         const side = listener.dataset.side;
         const otherSide = side === 'lhs' ? 'rhs' : 'lhs';
         console.log({side, otherSide});
         const target = /** @type {HTMLDetailsElement} **/ (evt.target);
         const {open} = target;
-        const lhsPath = target?.closest('[itemscope]:not([itemscope=""])')?.dataset?.path;
+        const path = target?.closest('[itemscope]:not([itemscope=""])')?.dataset?.path;
         const {target: t} = transformer;
         if(!(t instanceof Element)) return;
-        const rhsDetails = /** @type {HTMLDetailsElement} */ (t.querySelector(`td[data-side="${otherSide}"] [data-path="${lhsPath}"] details`));
-        if(rhsDetails === null) return;
-        rhsDetails.open = open;
+        const details = /** @type {HTMLDetailsElement} */ (t.querySelector(`td[data-side="${otherSide}"] [data-path="${path}"] details`));
+        if(details === null) return;
+        details.open = open;
     }
 
-        /**
-     * 
-     * @param {Event} evt 
-     * @param {ITransformer<AP, Actions>} transformer 
-     */
-    async handleRHSToggle(evt, transformer/*: ITransformer<AP, Actions>*/){
-        console.log('rhs - toggled', evt, transformer);
-    }
+
 }
 
 LRSync.bootUp();
