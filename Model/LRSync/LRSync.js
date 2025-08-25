@@ -38,8 +38,7 @@ export class LRSync extends Scope{
      */
     async handleLHSToggle(evt, transformer, uow, listener){
         const {target} = evt;
-        
-        const {ish} = target;
+        const ish = target?.closest('[itemscope]:not([itemscope=""])')?.ish;
         console.log({msg: 'handleLHSToggle', target, ish, listener});
     }
 
