@@ -3,7 +3,7 @@
 /** @import {IshConfig } from '../ts-refs/trans-render/froop/types' */
 
 import {Scope} from 'trans-render/froop/Scope.js';
-import {FileDeletedEvent} from '../Events.js';
+import {FileDeletedEvent} from '/Events.js';
 
 /**
  * @implements {Actions}
