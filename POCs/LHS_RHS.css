@@ -19,6 +19,10 @@ summary {
   list-style-type: '📁 ';
 }
 
+details {
+  cursor:default;
+}
+
 details[open]>summary {
   list-style-type: '📂 ';
 }
