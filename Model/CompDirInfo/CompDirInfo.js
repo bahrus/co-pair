@@ -1,9 +1,9 @@
 //@ts-check
 /** @import {AP, Actions, FileComp, PAP, SubDirComp} from './types' */
-/** @import {IshConfig } from '../ts-refs/trans-render/froop/types' */
+/** @import {IshConfig } from '../../ts-refs/trans-render/froop/types' */
 
 import {Scope} from 'trans-render/froop/Scope.js';
-import {FileDeletedEvent} from '/Events.js';
+import {FileDeletedEvent} from '../../Events.js';
 
 /**
  * @implements {Actions}
