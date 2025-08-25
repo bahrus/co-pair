@@ -37,18 +37,14 @@ export class LRSync extends Scope{
      * @param {ITransformer<AP, Actions>} transformer 
      */
     async handleLHSToggle(evt, transformer, uow, listener){
-        const {target} = evt;
+        const target = /** @type {HTMLDetailsElement} **/ (evt.target);
         const {open} = target;
         const lhsPath = target?.closest('[itemscope]:not([itemscope=""])')?.dataset?.path;
-        //const {myHandle} = ish;
         const {target: t} = transformer;
-        const rhsDetails = t.querySelector(`td[data-side="rhs"] [data-path="${lhsPath}"] details`);
-        //const details = rhs.querySelector('details');
+        if(!(t instanceof Element)) return;
+        const rhsDetails = /** @type {HTMLDetailsElement} */ (t.querySelector(`td[data-side="rhs"] [data-path="${lhsPath}"] details`));
+        if(rhsDetails === null) return;
         rhsDetails.open = open;
-        console.log({open, rhsDetails});
-        // const rhsCompDirInfos = Array.from(t.querySelectorAll('td[data-side="rhs"] [itemscope="CompDirInfo"]'));
-        // const rhs = rhsCompDirInfos.find(x => x.ish.yourHandle === myHandle);
-        // console.log({msg: 'handleLHSToggle', target, ish, listener, rhs});
     }
 
         /**
