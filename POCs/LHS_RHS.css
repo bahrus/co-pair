@@ -1,27 +1,26 @@
 @charset "UTF-8";
 ul {
   list-style-type: none; /* Removes bullets */
-      
+  border-top-width: 1px;
+  border-top-style: solid;
 }
 
 li {
-
-  border-top-width: 1px;
-  border-top-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
   /* border-color: lightgray; */
 }
 
-li:last-child{
-  border-bottom-width: 1px;
-  border-bottom-style: solid;
-}
+
 
 ul[itemprop="files"]{
   list-style-type: square; /* Restores bullets */;
 }
 
 [data-only-yours-exists="true"]>*, [data-name-to-display="undefined"]{
-    visibility: hidden;
+    /* visibility: hidden; */
+    background-color: transparent;
+    color: transparent;;
 }
 li[data-has-content-to-display="false"] > details > summary {
   list-style: none;
