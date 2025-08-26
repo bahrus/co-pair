@@ -30,9 +30,18 @@ details[open]>summary {
 ul {
   margin-block-start: 0;
   margin-block-end: 0;
+  padding-inline-start: 20px;
 }
 
 table.LRTable {
   width: 100%;
   border-collapse: collapse;
-} 
+}
+  
+button[name=delete] {
+  background-color: transparent; /* Removes background color */
+  border: none; /* Removes border */
+  color: inherit; /* Ensures text color matches parent element */
+  cursor: pointer; /* Adds a pointer cursor for better UX */
+  padding: 0; /* Optional: Adjust padding as needed */
+}
