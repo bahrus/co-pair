@@ -37,11 +37,12 @@ export class CompDirInfo extends Scope {
             },
             parentPath: {},
             path: {},
+            isOddItem: {},
         },
         xform: {
             '| nameToDisplay': 0,
             ':root':[
-                {data: ['onlyYoursExists', 'onlyMineExists', 'weMatch', 'nameToDisplay', 'hasContentToDisplay', 'path']},
+                {data: ['onlyYoursExists', 'onlyMineExists', 'weMatch', 'nameToDisplay', 'hasContentToDisplay', 'path', 'isOddItem']},
                 {m: {
                     on: FileDeletedEvent.eventName,
                     inc: 'updateCnt',
@@ -65,7 +66,11 @@ export class CompDirInfo extends Scope {
      * @returns 
      */
     async getInfo(self){
-        let {myHandle, yourHandle, nameToDisplay, parentPath} = self;
+        let {myHandle, yourHandle, nameToDisplay, parentPath, isOddItem} = self;
+        if(isOddItem === undefined){
+            isOddItem = false;
+        }
+        let itemIsOdd = !isOddItem;
         if(myHandle && !nameToDisplay){
             nameToDisplay = myHandle.name;
         }
@@ -128,7 +133,9 @@ export class CompDirInfo extends Scope {
                 onlyMineExists: !!mySubHandle && !yourSubHandle,
                 nameToDisplay: onlyYoursExists ? '' : name, 
                 parentPath: path,
+                isOddItem: itemIsOdd,
             });
+            itemIsOdd = !itemIsOdd;
         }
 
         //#endregion subdirectories
@@ -156,7 +163,9 @@ export class CompDirInfo extends Scope {
                 onlyYoursExists,
                 onlyMineExists: !!myFileHandle && !yourFileHandle,
                 nameToDisplay: onlyYoursExists ? '' : name,
+                isOddItem: itemIsOdd,
             });
+            itemIsOdd = !itemIsOdd;
         }
         //#endregion files
         return /** @type {PAP} */({

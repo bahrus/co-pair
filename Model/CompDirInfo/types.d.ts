@@ -39,4 +39,5 @@ export interface Comp {
     onlyYoursExists: boolean;
     onlyMineExists: boolean;
     nameToDisplay: string;
+    isOddItem: boolean;
 }

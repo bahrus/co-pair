@@ -10,11 +10,17 @@ ul {
   border-bottom-style: solid;
 } */
 
-li:nth-of-type(odd){
+/* li:nth-of-type(odd){
   background: lightgrey
+} */
+
+[data-is-odd-item="true"]{
+  background: #f0f0f0;
 }
 
-
+[data-is-odd-item="false"]{
+  background: white;
+}
 
 ul[itemprop="files"]{
   list-style-type: square; /* Restores bullets */;
@@ -22,7 +28,6 @@ ul[itemprop="files"]{
 
 [data-only-yours-exists="true"] details, [data-only-yours-exists="true"] div, [data-name-to-display="undefined"]{
     visibility: hidden;
-    
 }
 li[data-has-content-to-display="false"] > details > summary {
   list-style: none;
