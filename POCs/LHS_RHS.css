@@ -1,7 +1,11 @@
 @charset "UTF-8";
 ul {
-      list-style-type: none; /* Removes bullets */
+  list-style-type: none; /* Removes bullets */
       
+}
+
+ul[itemprop="files"]{
+  list-style-type: initial; /* Restores bullets */;
 }
 
 [data-only-yours-exists="true"]>*, [data-name-to-display="undefined"]{
