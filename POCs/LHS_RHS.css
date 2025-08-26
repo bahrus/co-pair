@@ -4,6 +4,18 @@ ul {
       
 }
 
+li {
+
+  border-top-width: 1px;
+  border-top-style: solid;
+  /* border-color: lightgray; */
+}
+
+li:last-child{
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+}
+
 ul[itemprop="files"]{
   list-style-type: square; /* Restores bullets */;
 }
