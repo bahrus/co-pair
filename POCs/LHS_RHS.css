@@ -5,7 +5,7 @@ ul {
 }
 
 ul[itemprop="files"]{
-  list-style-type: initial; /* Restores bullets */;
+  list-style-type: square; /* Restores bullets */;
 }
 
 [data-only-yours-exists="true"]>*, [data-name-to-display="undefined"]{
