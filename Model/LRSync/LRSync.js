@@ -32,7 +32,6 @@ export class LRSync extends Scope{
     async handleToggle(evt, transformer, uow, listener){
         const side = listener.dataset.side;
         const otherSide = side === 'lhs' ? 'rhs' : 'lhs';
-        console.log({side, otherSide});
         const target = /** @type {HTMLDetailsElement} **/ (evt.target);
         const {open} = target;
         const path = target?.closest('[itemscope]:not([itemscope=""])')?.dataset?.path;
