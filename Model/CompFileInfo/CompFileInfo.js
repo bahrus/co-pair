@@ -43,14 +43,6 @@ export class CompFileInfo extends Scope{
         if(myHandle === undefined) return;
         await myHandle.remove();
 
-        // if(target instanceof Element){
-        //     target.remove();
-        // }
-        // if(target instanceof Element){
-        //     const ish = target.closest('[itemscope="CompDirInfo"]')?.ish;
-        //     const result = await ish.getInfo(ish);
-        //     Object.assign(ish, result);
-        // }
         if(target instanceof Element){
             target.dispatchEvent(new FileDeletedEvent({bubbles: true, cancelable: true}));
         }
