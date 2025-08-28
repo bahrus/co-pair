@@ -74,8 +74,9 @@ export class CompDirInfo extends Scope {
         if(myHandle && !nameToDisplay){
             nameToDisplay = myHandle.name;
         }
+        const lastPathToken = nameToDisplay || yourHandle?.name;
         //const path = `${parentPath ||  ''}/${nameToDisplay}`;
-        const path = parentPath !== undefined ? `${parentPath}/${nameToDisplay}` : 'root';
+        const path = parentPath !== undefined ? `${parentPath}/${lastPathToken}` : 'root';
         const mySubDirectories = /** @type {Array<FileSystemDirectoryHandle>} */ ([]);
         const myFiles = /** @type {Array<FileSystemFileHandle>} */ ([]);
         if(myHandle !== undefined){
