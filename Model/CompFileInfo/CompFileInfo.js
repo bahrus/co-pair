@@ -23,7 +23,7 @@ export class CompFileInfo extends Scope{
         },
         xform: {
             '| nameToDisplay': [
-                {s: '?.dataset?.padding', o: 'padding', d: 0},
+                {s: '?.dataset?.padding', o: 'padding'},
                 {},
             ],
             '@ delete': _,
