@@ -1,18 +1,13 @@
 @charset "UTF-8";
 ul {
   list-style-type: none; /* Removes bullets */
-  /* border-top-width: 1px;
-  border-top-style: solid; */
+  margin:0;
+  padding: 0;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  padding-inline-start: 0px;
 }
 
-/* li {
-  border-bottom-width: 1px;
-  border-bottom-style: solid;
-} */
-
-/* li:nth-of-type(odd){
-  background: lightgrey
-} */
 
 [data-is-odd-item="true"]{
   background: #f0f0f0;
@@ -20,10 +15,6 @@ ul {
 
 [data-is-odd-item="false"]{
   background: white;
-}
-
-ul[itemprop="files"]{
-  list-style-type: square; /* Restores bullets */;
 }
 
 [data-only-yours-exists="true"] details, [data-only-yours-exists="true"] div, [data-name-to-display="undefined"]{
@@ -53,11 +44,6 @@ details[open]>summary {
   list-style-type: '📂 ';
 }
 
-ul {
-  margin-block-start: 0;
-  margin-block-end: 0;
-  padding-inline-start: 20px;
-}
 
 table.LRTable {
   width: 100%;

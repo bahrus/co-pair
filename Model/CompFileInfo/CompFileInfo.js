@@ -19,12 +19,13 @@ export class CompFileInfo extends Scope{
         propInfo: {
             myHandle: {},
             nameToDisplay:{},
+            margin:{},
         },
         xform: {
             '| nameToDisplay': 0,
             '@ delete': _,
             ':root':[
-                {data: ['onlyYoursExists', 'onlyMineExists', 'weMatch', 'isOddItem']}
+                {data: ['onlyYoursExists', 'onlyMineExists', 'weMatch', 'isOddItem', 'margin']}
             ]
         },
 
