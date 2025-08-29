@@ -43,7 +43,7 @@ export class CompDirInfo extends Scope {
         xform: {
             '| nameToDisplay': [
                 {s: '?.dataset?.padding', o: 'padding', d: 0},
-                {},
+                {},  //defaults to set textContent from nameToDisplay host prop
             ],
             ':root':[
                 {data: [
