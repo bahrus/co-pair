@@ -25,7 +25,7 @@ export class CompFileInfo extends Scope{
             '| nameToDisplay': 0,
             '@ delete': _,
             ':root':[
-                {data: ['onlyYoursExists', 'onlyMineExists', 'weMatch', 'isOddItem', 'margin']}
+                {data: ['onlyYoursExists', 'onlyMineExists', 'weMatch', 'isOddItem']}
             ]
         },
 

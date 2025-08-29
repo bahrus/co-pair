@@ -42,7 +42,7 @@ export class CompDirInfo extends Scope {
         },
         xform: {
             '| nameToDisplay': [
-                {s: '?.dataset?.margin', o: 'margin'},
+                {s: '?.dataset?.margin', o: 'margin', d: 0},
                 {s: 'textContent', o: 'nameToDisplay'},
             ],
             ':root':[
