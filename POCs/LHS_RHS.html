@@ -26,8 +26,27 @@
             </li>
         </ul>        
     </template>
+    <script>
+        function testCloning(){
+            // const obj = {
+            //     a: 13,
+            //     b: 2,
+            //     c: 3,
+            //     add: (a, b) => a + b,
+            // };
+            // console.log(obj.a, obj.add(obj.a,obj.b));
+            // const clone = structuredClone(obj);
+            // debugger;
+            // console.log(clone.a, clone.add(2,3));
+            debugger;
+            const directoryHandle = document.querySelector('[itemscope="CompDirInfo"]').ish.myHandle;
+            const myWorker = new Worker("/worker.js");
+            myWorker.postMessage({directoryHandle});
+        }
+    </script>
 </head>
 <body>
+    <button onclick="testCloning()">Test Cloning</button>
     <table class=LRTable>
         <thead>
             <tr>
