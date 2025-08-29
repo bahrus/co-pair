@@ -8,8 +8,8 @@ ul {
   padding-inline-start: 0px;
 }
 
-[data-margin]{
-  padding-left: attr(data-margin px);
+[data-padding]{
+  padding-left: attr(data-padding px);
 }
 
 /* li {

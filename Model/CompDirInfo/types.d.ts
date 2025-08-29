@@ -40,5 +40,5 @@ export interface Comp {
     onlyMineExists: boolean;
     nameToDisplay: string;
     isOddItem: boolean;
-    margin: number;
+    padding: number;
 }

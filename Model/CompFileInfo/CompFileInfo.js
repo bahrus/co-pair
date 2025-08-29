@@ -19,7 +19,7 @@ export class CompFileInfo extends Scope{
         propInfo: {
             myHandle: {},
             nameToDisplay:{},
-            margin:{},
+            padding:{},
         },
         xform: {
             '| nameToDisplay': 0,
