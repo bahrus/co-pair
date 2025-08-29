@@ -22,7 +22,10 @@ export class CompFileInfo extends Scope{
             padding:{},
         },
         xform: {
-            '| nameToDisplay': 0,
+            '| nameToDisplay': [
+                {s: '?.dataset?.padding', o: 'padding', d: 0},
+                {s: 'textContent', o: 'nameToDisplay'},
+            ],
             '@ delete': _,
             ':root':[
                 {data: ['onlyYoursExists', 'onlyMineExists', 'weMatch', 'isOddItem']}
