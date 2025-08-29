@@ -44,7 +44,6 @@ export class CompDirInfo extends Scope {
             '| nameToDisplay': [
                 {s: '?.dataset?.padding', o: 'padding', d: 0},
                 {s: 'textContent'},
-                // {s: 'textContent', o: 'nameToDisplay'},
             ],
             ':root':[
                 {data: [
