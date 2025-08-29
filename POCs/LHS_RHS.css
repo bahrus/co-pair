@@ -8,9 +8,9 @@ ul {
   padding-inline-start: 0px;
 }
 
-li {
+/* li {
   padding-left: attr(data-margin px);
-}
+} */
 
 
 [data-is-odd-item="true"]{

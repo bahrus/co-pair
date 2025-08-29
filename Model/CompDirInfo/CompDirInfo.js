@@ -41,11 +41,14 @@ export class CompDirInfo extends Scope {
             margin: {def: 0},
         },
         xform: {
-            '| nameToDisplay': 0,
+            '| nameToDisplay': [
+                {s: '?.dataset?.margin', o: 'margin'},
+                {s: 'textContent', o: 'nameToDisplay'},
+            ],
             ':root':[
                 {data: [
                     'onlyYoursExists', 'onlyMineExists', 'weMatch', 
-                    'nameToDisplay', 'hasContentToDisplay', 'path', 'isOddItem', 'margin'
+                    'nameToDisplay', 'hasContentToDisplay', 'path', 'isOddItem'
                 ]},
                 {m: {
                     on: FileDeletedEvent.eventName,
@@ -53,7 +56,8 @@ export class CompDirInfo extends Scope {
                     byAmt: 1,
                     stopPropagation: true, 
                 }}
-            ]
+            ],
+            
                 
         },
         actions: {
@@ -139,7 +143,7 @@ export class CompDirInfo extends Scope {
                 nameToDisplay: onlyYoursExists ? '' : name, 
                 parentPath: path,
                 isOddItem: itemIsOdd,
-                margin: margin + 20,
+                margin: margin + 10,
             });
             itemIsOdd = !itemIsOdd;
         }
@@ -170,7 +174,7 @@ export class CompDirInfo extends Scope {
                 onlyMineExists: !!myFileHandle && !yourFileHandle,
                 nameToDisplay: onlyYoursExists ? '' : name,
                 isOddItem: itemIsOdd,
-                margin: margin + 20,
+                margin: margin + 10,
             });
             itemIsOdd = !itemIsOdd;
         }
