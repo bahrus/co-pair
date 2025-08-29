@@ -1,4 +1,38 @@
 @charset "UTF-8";
+
+@media (prefers-color-scheme: light) {
+  /* Styles for light mode */
+  body {
+    background: #ffffff;
+    color: #000000;
+  }
+
+  [data-is-odd-item="true"]{
+    background: #f0f0f0;
+  }
+
+  [data-is-odd-item="false"]{
+    background: white;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  /* Styles for dark mode */
+  body {
+    background: #000000;
+    color: #ffffff;
+  }
+
+  [data-is-odd-item="true"]{
+    background: #1a1a1a;
+  }
+
+  [data-is-odd-item="false"]{
+    background: black;
+  }
+}
+
+
 ul {
   list-style-type: none; /* Removes bullets */
   margin:0;
@@ -17,13 +51,7 @@ ul {
 } */
 
 
-[data-is-odd-item="true"]{
-  background: #f0f0f0;
-}
 
-[data-is-odd-item="false"]{
-  background: white;
-}
 
 [data-only-yours-exists="true"] details, [data-only-yours-exists="true"] div, [data-name-to-display="undefined"]{
     visibility: hidden;
