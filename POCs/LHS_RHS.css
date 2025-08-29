@@ -8,6 +8,10 @@ ul {
   padding-inline-start: 0px;
 }
 
+li {
+  padding-left: attr(data-margin px);
+}
+
 
 [data-is-odd-item="true"]{
   background: #f0f0f0;
@@ -31,6 +35,7 @@ li[data-only-yours-exists="true"]{
 li[data-has-content-to-display="false"] details[data-has-content-to-display="false"] > summary::marker {
   display: none;
 }
+
 
 summary {
   list-style-type: '📁 ';
