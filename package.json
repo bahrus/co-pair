@@ -22,6 +22,7 @@
     "be-switched": "0.0.130",
     "folder-picker": "0.0.2",
     "mount-observer": "0.0.89",
+    "open-props": "^1.7.16",
     "per-each": "0.0.9",
     "trans-render": "0.0.930"
   },

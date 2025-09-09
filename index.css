@@ -1,0 +1,8 @@
+@charset "UTF-8";
+
+/* the props */
+@import "/node_modules/open-props/open-props.min.css";
+
+/* optional imports that use the props */
+@import "/node_modules/open-props/normalize.min.css";
+@import "/node_modules/open-props/buttons.min.css";
