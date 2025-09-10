@@ -8,7 +8,8 @@
     <!-- #include virtual="/imports.html" -->
     <template id=dirs-files>
         <ul itemscope=Scope itemprop=subDirs>
-            <li per-each="CompDirInfo of Scope">
+            <li be-observant="of onlyYoursExists onlyMineExists weMatch nameToDisplay hasContentToDisplay path and isOddItem" 
+                per-each="CompDirInfo of Scope">
                 <details #>
                     <summary itemprop=nameToDisplay></summary>
                     <template -id defer-🎚️ 🎚️="on when #{{details}}." rel=preload src=#dirs-files></template>
@@ -16,7 +17,9 @@
             </li>
         </ul>
         <ul itemscope=Scope itemprop=files>
-            <li per-each="CompFileInfo of Scope">
+            <li 
+                be-observant="of onlyYoursExists onlyMineExists weMatch nameToDisplay hasContentToDisplay path and isOddItem" 
+                per-each="CompFileInfo of Scope">
                 <div>
                     <span itemprop=nameToDisplay></span>
                     <button name=delete>×</button>
