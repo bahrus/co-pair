@@ -46,10 +46,10 @@ export class CompDirInfo extends Scope {
                 {},  
             ],
             ':root':[
-                {data: [
-                    'onlyYoursExists', 'onlyMineExists', 'weMatch', 
-                    'nameToDisplay', 'hasContentToDisplay', 'path', 'isOddItem'
-                ]},
+                // {data: [
+                //     'onlyYoursExists', 'onlyMineExists', 'weMatch', 
+                //     'nameToDisplay', 'hasContentToDisplay', 'path', 'isOddItem'
+                // ]},
                 {m: {
                     on: FileDeletedEvent.eventName,
                     inc: 'updateCnt',

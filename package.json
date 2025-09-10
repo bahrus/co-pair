@@ -16,15 +16,16 @@
   },
   "dependencies": {
     "@awesome.me/webawesome": "3.0.0-beta.4",
-    "be-enhanced": "0.0.183",
-    "be-enhancing": "0.0.2",
-    "be-hive": "0.0.263",
-    "be-switched": "0.0.130",
-    "folder-picker": "0.0.2",
-    "mount-observer": "0.0.89",
+    "be-enhanced": "0.0.186",
+    "be-enhancing": "0.0.4",
+    "be-hive": "0.0.265",
+    "be-observant": "0.0.183",
+    "be-switched": "0.0.136",
+    "folder-picker": "0.0.3",
+    "mount-observer": "0.0.101",
     "open-props": "^1.7.16",
     "per-each": "0.0.9",
-    "trans-render": "0.0.930"
+    "trans-render": "0.0.954"
   },
   "scripts": {
     "serve": "python ./node_modules/ssi-server/ssi_server.py",

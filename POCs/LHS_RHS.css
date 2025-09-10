@@ -53,7 +53,7 @@ ul {
 
 
 
-[data-only-yours-exists="true"] details, [data-only-yours-exists="true"] div, [data-name-to-display="undefined"]{
+[data-only-yours-exists="true"] details, [data-only-yours-exists="true"] div, details[itemscope=CompDirInfo]:not([data-name-to-display]){
     visibility: hidden;
 }
 li[data-has-content-to-display="false"] > details > summary {
