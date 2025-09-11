@@ -8,7 +8,7 @@
     <!-- #include virtual="/imports.html" -->
     <template id=dirs-files>
         <ul itemscope=Scope itemprop=subDirs>
-            <li be-observant="of onlyYoursExists onlyMineExists weMatch nameToDisplay hasContentToDisplay path and isOddItem" 
+            <li data-props="onlyYoursExists onlyMineExists weMatch nameToDisplay hasContentToDisplay path isOddItem" 
                 per-each="CompDirInfo of Scope">
                 <details #>
                     <summary itemprop=nameToDisplay 🔭></summary>
@@ -18,7 +18,7 @@
         </ul>
         <ul itemscope=Scope itemprop=files>
             <li 
-                be-observant="of onlyYoursExists onlyMineExists weMatch nameToDisplay hasContentToDisplay path and isOddItem" 
+                data-props="onlyYoursExists onlyMineExists weMatch nameToDisplay hasContentToDisplay path isOddItem" 
                 per-each="CompFileInfo of Scope">
                 <div>
                     <span itemprop=nameToDisplay 🔭></span>
@@ -69,7 +69,7 @@
             <tr>
                 <td data-side=lhs>
                     <details open itemscope=CompDirInfo
-                        be-observant="of onlyYoursExists onlyMineExists weMatch nameToDisplay hasContentToDisplay path and isOddItem" 
+                        data-props="onlyYoursExists onlyMineExists weMatch nameToDisplay hasContentToDisplay path isOddItem" 
                         be-enhancing="
                             #lhsDirPick with 📁⛏️ and set $0+ish?.myHandle to directoryHandle.
                             #rhsDirPick with 📁⛏️ and set $0+ish?.yourHandle to directoryHandle.
@@ -80,7 +80,7 @@
                 </td>
                 <td data-side=rhs>
                     <details open disabled itemscope=CompDirInfo
-                        be-observant="of onlyYoursExists onlyMineExists weMatch nameToDisplay hasContentToDisplay path and isOddItem" 
+                        data-props="onlyYoursExists onlyMineExists weMatch nameToDisplay hasContentToDisplay path isOddItem" 
                         be-enhancing="
                             #rhsDirPick with 📁⛏️ and set $0+ish?.myHandle to directoryHandle.
                             #lhsDirPick with 📁⛏️ and set $0+ish?.yourHandle to directoryHandle.
@@ -97,7 +97,7 @@
         import 'folder-picker/📁⛏️.js';
         import 'be-enhancing/emc.js';
 
-        import 'be-observant/👀.js';
+        import 'data-props/emc.js';
 
         import 'be-observing/🔭.js';
         
