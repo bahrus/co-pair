@@ -11,7 +11,7 @@
             <li be-observant="of onlyYoursExists onlyMineExists weMatch nameToDisplay hasContentToDisplay path and isOddItem" 
                 per-each="CompDirInfo of Scope">
                 <details #>
-                    <summary itemprop=nameToDisplay></summary>
+                    <summary itemprop=nameToDisplay 🔭></summary>
                     <template -id defer-🎚️ 🎚️="on when #{{details}}." rel=preload src=#dirs-files></template>
                 </details>
             </li>
@@ -21,7 +21,7 @@
                 be-observant="of onlyYoursExists onlyMineExists weMatch nameToDisplay hasContentToDisplay path and isOddItem" 
                 per-each="CompFileInfo of Scope">
                 <div>
-                    <span itemprop=nameToDisplay></span>
+                    <span itemprop=nameToDisplay 🔭></span>
                     <button name=delete>×</button>
                 </div>
                 
@@ -74,7 +74,7 @@
                             #lhsDirPick with 📁⛏️ and set $0+ish?.myHandle to directoryHandle.
                             #rhsDirPick with 📁⛏️ and set $0+ish?.yourHandle to directoryHandle.
                         " #>
-                        <summary itemprop=nameToDisplay></summary>
+                        <summary itemprop=nameToDisplay 🔭></summary>
                         <template -id defer-🎚️ 🎚️="on when #{{CompDirInfo}}." rel=preload src=#dirs-files></template>
                     </details>
                 </td>
@@ -85,7 +85,7 @@
                             #rhsDirPick with 📁⛏️ and set $0+ish?.myHandle to directoryHandle.
                             #lhsDirPick with 📁⛏️ and set $0+ish?.yourHandle to directoryHandle.
                         " #>
-                        <summary itemprop=nameToDisplay></summary>
+                        <summary itemprop=nameToDisplay 🔭></summary>
                         <template -id defer-🎚️ 🎚️="on when #{{CompDirInfo}}." rel=preload src=#dirs-files></template>
                     </details>
                 </td>
@@ -98,6 +98,8 @@
         import 'be-enhancing/emc.js';
 
         import 'be-observant/👀.js';
+
+        import 'be-observing/🔭.js';
         
         import 'per-each/emc.js';
         import { regIsh } from 'mount-observer/refid/regIsh.js';

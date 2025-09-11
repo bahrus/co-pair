@@ -15,11 +15,12 @@
     "ssi-server": "0.0.1"
   },
   "dependencies": {
-    "@awesome.me/webawesome": "3.0.0-beta.4",
+    "@awesome.me/webawesome": "3.0.0-beta.5",
     "be-enhanced": "0.0.186",
     "be-enhancing": "0.0.4",
     "be-hive": "0.0.265",
     "be-observant": "0.0.183",
+    "be-observing": "0.0.3",
     "be-switched": "0.0.136",
     "folder-picker": "0.0.3",
     "mount-observer": "0.0.101",
