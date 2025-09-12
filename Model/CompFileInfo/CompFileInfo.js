@@ -21,13 +21,6 @@ export class CompFileInfo extends Scope{
             nameToDisplay:{},
             padding:{},
         },
-        // xform: {
-
-        //     ':root':[
-        //         {data: ['onlyYoursExists', 'onlyMineExists', 'weMatch', 'isOddItem']}
-        //     ]
-        // },
-
     };
 
 
