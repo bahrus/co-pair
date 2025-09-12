@@ -26,7 +26,7 @@ export class CompFileInfo extends Scope{
             //     {s: '?.dataset?.padding', o: 'padding'},
             //     {},
             // ],
-            '@ delete': _,
+            // '@ delete': _,
             ':root':[
                 {data: ['onlyYoursExists', 'onlyMineExists', 'weMatch', 'isOddItem']}
             ]
