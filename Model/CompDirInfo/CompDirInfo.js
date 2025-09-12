@@ -41,10 +41,6 @@ export class CompDirInfo extends Scope {
             padding: {def: 0},
         },
         xform: {
-            // '| nameToDisplay': [
-            //     {s: '?.dataset?.padding', o: 'padding'},
-            //     {},  
-            // ],
             ':root':[
                 {m: {
                     on: FileDeletedEvent.eventName,
