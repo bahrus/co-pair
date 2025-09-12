@@ -37,16 +37,15 @@ export class CompFileInfo extends Scope{
 
 
     /**
+     * @param {AP} self
      * @param {Event} evt
-     * @param {ITransformer<AP, Actions>} transformer
      * @returns 
      */
-    async delete(evt, transformer){
-        const {model, target} = transformer;
-        const {myHandle} = model;
+    async delete(self, evt){
+        const {myHandle} = self;
         if(myHandle === undefined) return;
         await myHandle.remove();
-
+        const {target} = evt;
         if(target instanceof Element){
             target.dispatchEvent(new FileDeletedEvent({bubbles: true, cancelable: true}));
         }
