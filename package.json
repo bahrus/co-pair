@@ -28,7 +28,7 @@
     "mount-observer": "0.0.101",
     "open-props": "^1.7.16",
     "per-each": "0.0.9",
-    "trans-render": "0.0.954"
+    "trans-render": "0.0.955"
   },
   "scripts": {
     "serve": "python ./node_modules/ssi-server/ssi_server.py",
