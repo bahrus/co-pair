@@ -43,18 +43,6 @@ export class CompDirInfo extends Scope {
         extHandlers:{
             inc_updateCnt: {on: FileDeletedEvent.eventName, stopPropagation: true}
         },
-        // xform: {
-        //     ':root':[
-        //         {m: {
-        //             on: FileDeletedEvent.eventName,
-        //             inc: 'updateCnt',
-        //             byAmt: 1,
-        //             stopPropagation: true, 
-        //         }}
-        //     ],
-            
-                
-        // },
         actions: {
             getInfo: {
                 ifAllOf: ['myHandle', 'yourHandle', 'updateCnt'],
