@@ -6,6 +6,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LHS/RHS</title>
     <!-- #include virtual="/imports.html" -->
+
+    <script>
+        function testCloning(){
+            // const obj = {
+            //     a: 13,
+            //     b: 2,
+            //     c: 3,
+            //     add: (a, b) => a + b,
+            // };
+            // console.log(obj.a, obj.add(obj.a,obj.b));
+            // const clone = structuredClone(obj);
+            // debugger;
+            // console.log(clone.a, clone.add(2,3));
+            debugger;
+            const directoryHandle = document.querySelector('[itemscope="CompDirInfo"]').ish.myHandle;
+            const myWorker = new Worker("/worker.js");
+            myWorker.postMessage({directoryHandle});
+        }
+    </script>
+</head>
+<body>
+    <button onclick="testCloning()">Test Cloning</button>
+    <!--begin--><!--begin-->
     <template id=dirs-files>
         <ul itemscope=Scope itemprop=subDirs>
             <li data-props="onlyYoursExists onlyMineExists weMatch nameToDisplay hasContentToDisplay path isOddItem" 
@@ -29,27 +52,6 @@
             </li>
         </ul>        
     </template>
-    <script>
-        function testCloning(){
-            // const obj = {
-            //     a: 13,
-            //     b: 2,
-            //     c: 3,
-            //     add: (a, b) => a + b,
-            // };
-            // console.log(obj.a, obj.add(obj.a,obj.b));
-            // const clone = structuredClone(obj);
-            // debugger;
-            // console.log(clone.a, clone.add(2,3));
-            debugger;
-            const directoryHandle = document.querySelector('[itemscope="CompDirInfo"]').ish.myHandle;
-            const myWorker = new Worker("/worker.js");
-            myWorker.postMessage({directoryHandle});
-        }
-    </script>
-</head>
-<body>
-    <button onclick="testCloning()">Test Cloning</button>
     <table class=LRTable>
         <thead>
             <tr>
@@ -92,6 +94,7 @@
             </tr>
         </tbody>
     </table>
+    <!--end--><!--end-->
 
     <script type=module>
         import 'folder-picker/📁⛏️.js';
