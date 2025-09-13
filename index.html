@@ -28,23 +28,23 @@
     <!-- Note the position: relative style -->
 <span style="position: relative">
   <md-filled-button id="usage-submenu-anchor">
-    Menu with Submenus
+    Session
   </md-filled-button>
   <!-- Note the has-overflow attribute -->
-  <md-menu has-overflow id="usage-submenu" anchor="usage-submenu-anchor">
+  <md-menu style="min-width:200px;" has-overflow id="usage-submenu" anchor="usage-submenu-anchor">
     <md-sub-menu>
       <md-menu-item slot="item">
-      <div slot="headline">Fruits with A</div>
+      <div slot="headline">New Session</div>
         <!-- Arrow icons are helpful affordances -->
         <md-icon slot="end">arrow_right</md-icon>
       </md-menu-item>
       <!-- Submenu must be slotted into sub-menu's menu slot -->
-      <md-menu slot="menu">
+      <md-menu style="min-width:200px;" slot="menu">
         <md-menu-item>
-          <div slot="headline">Apricot</div>
+          <div slot="headline">Folder Compare</div>
         </md-menu-item>
         <md-menu-item>
-          <div slot="headline">Avocado</div>
+          <div slot="headline">Text Compare</div>
         </md-menu-item>
 
         <!-- Nest as many as you want and control menu anchoring -->
