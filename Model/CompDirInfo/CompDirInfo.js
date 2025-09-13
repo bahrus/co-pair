@@ -40,18 +40,21 @@ export class CompDirInfo extends Scope {
             isOddItem: {},
             padding: {def: 0},
         },
-        xform: {
-            ':root':[
-                {m: {
-                    on: FileDeletedEvent.eventName,
-                    inc: 'updateCnt',
-                    byAmt: 1,
-                    stopPropagation: true, 
-                }}
-            ],
+        extHandlers:{
+            inc_updateCnt: {on: FileDeletedEvent.eventName, stopPropagation: true}
+        },
+        // xform: {
+        //     ':root':[
+        //         {m: {
+        //             on: FileDeletedEvent.eventName,
+        //             inc: 'updateCnt',
+        //             byAmt: 1,
+        //             stopPropagation: true, 
+        //         }}
+        //     ],
             
                 
-        },
+        // },
         actions: {
             getInfo: {
                 ifAllOf: ['myHandle', 'yourHandle', 'updateCnt'],
