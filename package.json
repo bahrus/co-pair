@@ -24,7 +24,7 @@
     "be-switched": "0.0.136",
     "data-props": "0.0.3",
     "do-inc": "0.0.1",
-    "do-invoke": "0.0.2",
+    "do-invoke": "0.0.3",
     "folder-picker": "0.0.3",
     "mount-observer": "0.0.101",
     "open-props": "^1.7.16",
