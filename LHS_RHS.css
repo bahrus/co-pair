@@ -30,6 +30,13 @@
   [data-is-odd-item="false"]{
     background: black;
   }
+
+  :host {
+      --md-filled-button-container-shape: 0px;
+      --md-filled-button-label-text-font: system-ui;
+      --md-sys-color-primary: #006A6A;
+      --md-sys-color-on-primary: #FFFFFF;
+  }
 }
 
 
