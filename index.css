@@ -1,8 +1,19 @@
 @charset "UTF-8";
 
-/* the props */
-@import "/node_modules/open-props/open-props.min.css";
+@media (prefers-color-scheme: light) {
+  /* Styles for light mode */
+  body {
+    background: #ffffff;
+    color: #000000;
+  }
 
-/* optional imports that use the props */
-@import "/node_modules/open-props/normalize.min.css";
-@import "/node_modules/open-props/buttons.min.css";
+}
+
+@media (prefers-color-scheme: dark) {
+  /* Styles for dark mode */
+  body {
+    background: #000000;
+    color: #ffffff;
+  }
+
+}

@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="./LHS_RHS.css">
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LHS/RHS</title>
     <!-- #include virtual="/imports.html" -->
@@ -32,6 +32,7 @@
     <button onclick="testCloning()">Test Cloning</button>
     <lhs-rhs-folders>
         <template shadowrootmode="open"><!--begin--><!--begin-->
+            <link rel="stylesheet" href="./LHS_RHS.css">
             <template id=dirs-files>
                 <ul itemscope=Scope itemprop=subDirs>
                     <li data-props="onlyYoursExists onlyMineExists weMatch nameToDisplay hasContentToDisplay path isOddItem"
