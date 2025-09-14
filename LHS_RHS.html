@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="./LHS_RHS.css">
@@ -8,7 +9,7 @@
     <!-- #include virtual="/imports.html" -->
 
     <script>
-        function testCloning(){
+        function testCloning() {
             // const obj = {
             //     a: 13,
             //     b: 2,
@@ -22,79 +23,83 @@
             debugger;
             const directoryHandle = document.querySelector('[itemscope="CompDirInfo"]').ish.myHandle;
             const myWorker = new Worker("/worker.js");
-            myWorker.postMessage({directoryHandle});
+            myWorker.postMessage({ directoryHandle });
         }
     </script>
 </head>
+
 <body>
     <button onclick="testCloning()">Test Cloning</button>
-    <!--begin--><!--begin-->
-    <template id=dirs-files>
-        <ul itemscope=Scope itemprop=subDirs>
-            <li data-props="onlyYoursExists onlyMineExists weMatch nameToDisplay hasContentToDisplay path isOddItem" 
-                per-each="CompDirInfo of Scope">
-                <details #>
-                    <summary itemprop=nameToDisplay 🔭 data-props=padding></summary>
-                    <template -id defer-🎚️ 🎚️="on when #{{details}}." rel=preload src=#dirs-files></template>
-                </details>
-            </li>
-        </ul>
-        <ul itemscope=Scope itemprop=files>
-            <li 
-                data-props="onlyYoursExists onlyMineExists weMatch nameToDisplay hasContentToDisplay path isOddItem" 
-                per-each="CompFileInfo of Scope">
-                <div>
-                    <span itemprop=nameToDisplay 🔭 data-props=padding></span>
-                    <button name=delete 🕹️>×</button>
-                </div>
-                
+    <lhs-rhs-folders>
+        <template shadowrootmode="open"><!--begin--><!--begin-->
+            <template id=dirs-files>
+                <ul itemscope=Scope itemprop=subDirs>
+                    <li data-props="onlyYoursExists onlyMineExists weMatch nameToDisplay hasContentToDisplay path isOddItem"
+                        per-each="CompDirInfo of Scope">
+                        <details #>
+                            <summary itemprop=nameToDisplay 🔭 data-props=padding></summary>
+                            <template -id defer-🎚️ 🎚️="on when #{{details}}." rel=preload src=#dirs-files></template>
+                        </details>
+                    </li>
+                </ul>
+                <ul itemscope=Scope itemprop=files>
+                    <li data-props="onlyYoursExists onlyMineExists weMatch nameToDisplay hasContentToDisplay path isOddItem"
+                        per-each="CompFileInfo of Scope">
+                        <div>
+                            <span itemprop=nameToDisplay 🔭 data-props=padding></span>
+                            <button name=delete 🕹️>×</button>
+                        </div>
 
-            </li>
-        </ul>        
-    </template>
-    <table class=LRTable>
-        <thead>
-            <tr>
-                <th>
-                    <button id=lhsDirPick disabled>Pick LHS directory</button>
-                </th>
-                <th>
-                    <button id=rhsDirPick disabled>Pick RHS directory</button>
-                </th>
-            </tr>
-            <tr>
-                <th>Left Hand Side</th>
-                <th>Right Hand Side</th>
-            </tr>
-        </thead>
-        <tbody itemscope=LRSync>
-            <tr>
-                <td data-side=lhs>
-                    <details open itemscope=CompDirInfo
-                        data-props="onlyYoursExists onlyMineExists weMatch nameToDisplay hasContentToDisplay path isOddItem" 
-                        be-enhancing="
+
+                    </li>
+                </ul>
+            </template>
+            <table class=LRTable>
+                <thead>
+                    <tr>
+                        <th>
+                            <button id=lhsDirPick disabled>Pick LHS directory</button>
+                        </th>
+                        <th>
+                            <button id=rhsDirPick disabled>Pick RHS directory</button>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>Left Hand Side</th>
+                        <th>Right Hand Side</th>
+                    </tr>
+                </thead>
+                <tbody itemscope=LRSync>
+                    <tr>
+                        <td data-side=lhs>
+                            <details open itemscope=CompDirInfo
+                                data-props="onlyYoursExists onlyMineExists weMatch nameToDisplay hasContentToDisplay path isOddItem"
+                                be-enhancing="
                             #lhsDirPick with 📁⛏️ and set $0+ish?.myHandle to directoryHandle.
                             #rhsDirPick with 📁⛏️ and set $0+ish?.yourHandle to directoryHandle.
                         " #>
-                        <summary itemprop=nameToDisplay 🔭 data-props="padding"></summary>
-                        <template -id defer-🎚️ 🎚️="on when #{{CompDirInfo}}." rel=preload src=#dirs-files></template>
-                    </details>
-                </td>
-                <td data-side=rhs>
-                    <details open disabled itemscope=CompDirInfo
-                        data-props="onlyYoursExists onlyMineExists weMatch nameToDisplay hasContentToDisplay path isOddItem" 
-                        be-enhancing="
+                                <summary itemprop=nameToDisplay 🔭 data-props="padding"></summary>
+                                <template -id defer-🎚️ 🎚️="on when #{{CompDirInfo}}." rel=preload
+                                    src=#dirs-files></template>
+                            </details>
+                        </td>
+                        <td data-side=rhs>
+                            <details open disabled itemscope=CompDirInfo
+                                data-props="onlyYoursExists onlyMineExists weMatch nameToDisplay hasContentToDisplay path isOddItem"
+                                be-enhancing="
                             #rhsDirPick with 📁⛏️ and set $0+ish?.myHandle to directoryHandle.
                             #lhsDirPick with 📁⛏️ and set $0+ish?.yourHandle to directoryHandle.
                         " #>
-                        <summary itemprop=nameToDisplay 🔭 data-props="padding"></summary>
-                        <template -id defer-🎚️ 🎚️="on when #{{CompDirInfo}}." rel=preload src=#dirs-files></template>
-                    </details>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <!--end--><!--end-->
+                                <summary itemprop=nameToDisplay 🔭 data-props="padding"></summary>
+                                <template -id defer-🎚️ 🎚️="on when #{{CompDirInfo}}." rel=preload
+                                    src=#dirs-files></template>
+                            </details>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </template><!--end--><!--end-->
+    </lhs-rhs-folders>
 
     <script type=module>
         import 'folder-picker/📁⛏️.js';
@@ -106,7 +111,7 @@
         import 'do-invoke/🕹️.js';
 
         import 'be-observing/🔭.js';
-        
+
         import 'per-each/emc.js';
         import { regIsh } from 'mount-observer/refid/regIsh.js';
         import 'be-switched/🎚️.js';
@@ -120,7 +125,7 @@
         import { LRSync } from '/Model/LRSync/LRSync.js';
         regIsh(document.body, 'LRSync', LRSync);
 
-        import {Scope} from 'trans-render/froop/Scope.js';
+        import { Scope } from 'trans-render/froop/Scope.js';
         regIsh(document.body, 'Scope', Scope);
 
     </script>
