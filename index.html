@@ -38,7 +38,9 @@
       <!-- Submenu must be slotted into sub-menu's menu slot -->
       <md-menu style="min-width:200px;" slot="menu">
         <md-menu-item>
-          <div slot="headline">Folder Compare</div>
+          <div slot="headline">
+            <a id=folder-compare href=co-pair/LHS_RHS.html>Folder Compare</a>
+          </div>
         </md-menu-item>
         <md-menu-item>
           <div slot="headline">Text Compare</div>
@@ -52,7 +54,9 @@
   </md-menu>
 </span>
 
-<lhs-rhs-folders enh-be-importing="co-pair/LHS_RHS.html" enh-be-importing-encoding="UTF-16"></lhs-rhs-folders>
+<lhs-rhs-folders enh-📥-on-navigate='{
+  "whereSrcElementMatches": "#folder-compare"
+}' enh-📥-encoding="UTF-16"></lhs-rhs-folders>
 
 <script type="module">
   const anchorEl = document.body.querySelector('#usage-submenu-anchor');
