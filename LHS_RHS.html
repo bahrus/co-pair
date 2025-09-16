@@ -6,7 +6,7 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LHS/RHS</title>
-    <!-- #include virtual="/imports.html" -->
+    <!-- #include virtual="imports.html" -->
 
     <script>
         function testCloning() {
@@ -32,7 +32,7 @@
     <button onclick="testCloning()">Test Cloning</button>
     <lhs-rhs-folders>
         <template shadowrootmode="open"><!--begin--><!--begin-->
-            <link rel="stylesheet" href="./LHS_RHS.css">
+            <link rel="stylesheet" href="/LHS_RHS.css">
             <template id=dirs-files>
                 <ul itemscope=Scope itemprop=subDirs>
                     <li data-props="onlyYoursExists onlyMineExists weMatch nameToDisplay hasContentToDisplay path isOddItem"
@@ -101,34 +101,7 @@
     </lhs-rhs-folders>
 
     <script type=module>
-        import 'folder-picker/📁⛏️.js';
-        import 'be-enhancing/emc.js';
-
-        import 'data-props/emc.js';
-
-        //import 'do-inc/➕.js';
-        import 'do-invoke/🕹️.js';
-
-        import 'be-observing/🔭.js';
-
-        import 'per-each/emc.js';
-        import { regIsh } from 'mount-observer/refid/regIsh.js';
-        import 'be-switched/🎚️.js';
-
-        import { CompDirInfo } from '/Model/CompDirInfo/CompDirInfo.js';
-        regIsh(document.body, 'CompDirInfo', CompDirInfo);
-
-        import { CompFileInfo } from '/Model/CompFileInfo/CompFileInfo.js';
-        regIsh(document.body, 'CompFileInfo', CompFileInfo);
-
-        import { LRSync } from '/Model/LRSync/LRSync.js';
-        regIsh(document.body, 'LRSync', LRSync);
-
-        import { Scope } from 'trans-render/froop/Scope.js';
-        regIsh(document.body, 'Scope', Scope);
-
-        
-
+        import './refs.js';
     </script>
 </body>
 
