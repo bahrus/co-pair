@@ -33,26 +33,28 @@
     <lhs-rhs-folders>
         <template shadowrootmode="open"><!--begin--><!--begin-->
             <link rel="stylesheet" href="/LHS_RHS.css">
+            <template id=dirs>
+                <li data-props="onlyYoursExists onlyMineExists weMatch nameToDisplay hasContentToDisplay path isOddItem">
+                    <details #>
+                        <summary itemprop=nameToDisplay 🔭 data-props=padding></summary>
+                        <template -id defer-🎚️ 🎚️="on when #{{details}}." rel=preload src=#dirs-files></template>
+                    </details>
+                </li>
+            </template>
+            <template id=files>
+                <li data-props="onlyYoursExists onlyMineExists weMatch nameToDisplay hasContentToDisplay path isOddItem">
+                    <div>
+                        <span itemprop=nameToDisplay 🔭 data-props=padding></span>
+                        <button name=delete 🕹️>×</button>
+                    </div>
+                </li>
+            </template>
             <template id=dirs-files>
                 <ul itemscope=Scope itemprop=subDirs>
-                    <li data-props="onlyYoursExists onlyMineExists weMatch nameToDisplay hasContentToDisplay path isOddItem"
-                        per-each="CompDirInfo of Scope">
-                        <details #>
-                            <summary itemprop=nameToDisplay 🔭 data-props=padding></summary>
-                            <template -id defer-🎚️ 🎚️="on when #{{details}}." rel=preload src=#dirs-files></template>
-                        </details>
-                    </li>
+                    <template src=#dirs rel=preload per-each="CompDirInfo of Scope"></template>
                 </ul>
                 <ul itemscope=Scope itemprop=files>
-                    <li data-props="onlyYoursExists onlyMineExists weMatch nameToDisplay hasContentToDisplay path isOddItem"
-                        per-each="CompFileInfo of Scope">
-                        <div>
-                            <span itemprop=nameToDisplay 🔭 data-props=padding></span>
-                            <button name=delete 🕹️>×</button>
-                        </div>
-
-
-                    </li>
+                    <template src=#files rel=preload per-each="CompFileInfo of Scope"></template>
                 </ul>
             </template>
             <table class=LRTable>
