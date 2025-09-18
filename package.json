@@ -12,7 +12,7 @@
   },
   "devDependencies": {
     "@playwright/test": "1.55.0",
-    "spa-ssi": "0.0.1"
+    "spa-ssi": "0.0.2"
   },
   "dependencies": {
     "@material/web": "2.4.0",
@@ -22,7 +22,7 @@
     "be-importing": "0.0.98",
     "be-observing": "0.0.4",
     "be-switched": "0.0.136",
-    "be-written": "0.0.60",
+    "be-written": "0.0.62",
     "data-props": "0.0.3",
     "do-inc": "0.0.1",
     "do-invoke": "0.0.3",
